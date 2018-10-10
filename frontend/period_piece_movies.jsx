@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Linker from './components/linker';
+import configureStore from './store/store';
+
+const store = configureStore();
 
 document.addEventListener("DOMContentLoaded", () => {
-  ReactDOM.render(<h1>Hello Reactive World!</h1>, root);
+  ReactDOM.render(<Linker store={store}/>, root);
 });
