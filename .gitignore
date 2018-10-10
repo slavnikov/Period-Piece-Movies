@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+.jshintrc
 
 # Ignore uploaded files in development
 /storage/*
@@ -19,6 +20,9 @@
 
 /node_modules
 /yarn-error.log
+node_modules/
+bundle.js
+bundle.js.map
 
 /public/assets
 .byebug_history

@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Movie.create({title: "The Patrior", year: 2000, start_date: "1776-01-01", end_date: "1776-12-31"});
