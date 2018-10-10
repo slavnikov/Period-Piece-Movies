@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 .jshintrc
+.env
 
 # Ignore uploaded files in development
 /storage/*
