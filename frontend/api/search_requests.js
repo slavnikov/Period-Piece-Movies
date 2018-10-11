@@ -9,3 +9,16 @@ export const searchByName = (query) => {
     })
   );
 };
+
+export const searchByDateRange = (startDate, endDate) => {
+  return (
+    $.ajax({
+      method: 'get',
+      url: '/search/by_date_range',
+      date: {
+        startDate: startDate,
+        endDate: endDate,
+      }
+    })
+  );
+};
