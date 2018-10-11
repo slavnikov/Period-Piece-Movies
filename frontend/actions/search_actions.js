@@ -1,5 +1,5 @@
 import * as SearchAPI from '../api/search_requests';
-export const RECEIVE_MOVIES = 'RECEIVE_OUR_MOVIES';
+export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 
 export const searchByName = (query) => {
   return (dispatch) => {
@@ -19,7 +19,7 @@ export const searchByDateRange = (startDate, endDate) => {
 
 export const receiveMovies = (payload) => {
   return ({
-    type: RECEIVE_MOVIES,
+    type: RECEIVE_SEARCH_RESULTS,
     payload: payload,
   });
 };

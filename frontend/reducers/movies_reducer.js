@@ -1,10 +1,10 @@
 import { merge } from 'lodash';
-import { RECEIVE_MOVIES } from '../actions/search_actions';
+import { RECEIVE_SEARCH_RESULTS } from '../actions/search_actions';
 
-const MoviesReducer = (state = {ourMovies: {}, tmdbMovies: {}}, action) => {
+const MoviesReducer = (state = {}, action) => {
   switch (action.type) {
-    case RECEIVE_MOVIES:
-      return merge({}, state, action.payload);
+    case RECEIVE_SEARCH_RESULTS:
+      return merge({}, state, action.payload.ourMovies);
     default:
       return state;
   }
