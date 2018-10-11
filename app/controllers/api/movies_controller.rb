@@ -1,7 +1,7 @@
 class Api::MoviesController < ApplicationController
-  def index
-    @movies = Movies.all
+  def show
+    @movie = Movie.find_by(id: params[:id])
 
-    render :index
+    render :show
   end
 end
