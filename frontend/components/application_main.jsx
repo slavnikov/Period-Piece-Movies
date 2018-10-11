@@ -1,9 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
+import MovieSearch from './movie_search/movie_search_container';
 
 const ApplicationMain = (props) => {
   return (
-    <h1>Application Splash Screen</h1>
+    <div>
+      <Route path='/movie_search' component={MovieSearch}/>
+    </div>
   );
 };
 
