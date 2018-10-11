@@ -1,10 +1,17 @@
 import { connect } from 'react-redux';
 import MovieVE from './movie_ve';
+import { fetchMovie } from '../../actions/movie_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return ({
-    movies: state.movies,
+    movie: state.movies[ownProps.match.params.movie_id],
   });
 };
 
-export default connect(mapStateToProps)(MovieVE);
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    fetchMovie: (id) => dispatch(fetchMovie(id)),
+  });
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieVE);

@@ -3,7 +3,7 @@ import React from 'react';
 class MovieVE extends React.Component {
   constructor(props){
     super(props);
-    this.movie = this.props.movies[this.props.match.params.movie_id];
+    this.movie = this.props.movie || {};
     this.state = {
       title: this.movie.title,
       year: this.movie.year,
@@ -13,11 +13,28 @@ class MovieVE extends React.Component {
     };
   }
 
+  componentDidMount() {
+    if (!this.props.movie) {
+      this.props.fetchMovie(this.props.match.params.movie_id);
+    }
+  }
+
+  componentWillUpdate(nextProps) {
+    if (nextProps.movie && nextProps.movie.title !== this.state.title) {
+      this.setState({
+        title: nextProps.movie.title,
+        year: nextProps.movie.year,
+        startDate: nextProps.movie.start_date,
+        endDate: nextProps.movie.end_date,
+        overview: nextProps.movie.overview,
+      });
+    }
+  }
+
   render () {
-    if (!this.movie) {
+    if (!this.props.movie) {
       return <h1>Configuring the time machine right now...</h1>;
     }
-    
     return (
       <div>
         <main>
