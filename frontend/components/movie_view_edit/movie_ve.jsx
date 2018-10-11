@@ -5,11 +5,11 @@ class MovieVE extends React.Component {
     super(props);
     this.movie = this.props.movie || {};
     this.state = {
-      title: this.movie.title,
-      year: this.movie.year,
-      startDate: this.movie.start_date,
-      endDate: this.movie.end_date,
-      overview: this.movie.overview,
+      title: this.movie.title || '',
+      year: this.movie.year || '',
+      startDate: this.movie.start_date || '',
+      endDate: this.movie.end_date || '',
+      overview: this.movie.overview || '',
     };
   }
 
@@ -26,9 +26,13 @@ class MovieVE extends React.Component {
         year: nextProps.movie.year,
         startDate: nextProps.movie.start_date,
         endDate: nextProps.movie.end_date,
-        overview: nextProps.movie.overview,
+        overview: nextProps.movie.overview || '',
       });
     }
+  }
+
+  change() {
+    return null;
   }
 
   render () {
@@ -41,15 +45,15 @@ class MovieVE extends React.Component {
           <h2>Movie Details:</h2>
           <form>
             <label>Title</label>
-            <input type='text' value={this.state.title}></input>
+            <input onChange={this.change} type='text' value={this.state.title}></input>
             <label>Year</label>
-            <input type='number' value={this.state.year}></input>
+            <input onChange={this.change} type='number' value={this.state.year}></input>
             <label>Start Date</label>
-            <input type='date' value={this.state.startDate}></input>
+            <input onChange={this.change} type='date' value={this.state.startDate}></input>
             <label>End Date</label>
-            <input type='date' value={this.state.endDate}></input>
+            <input onChange={this.change} type='date' value={this.state.endDate}></input>
             <label>Overview</label>
-            <textarea value={this.state.overview}></textarea>
+            <textarea onChange={this.change} value={this.state.overview}></textarea>
           </form>
         </main>
       </div>

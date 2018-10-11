@@ -14,5 +14,7 @@ window.fetchMovie = fetchMovie;
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  const root = document.getElementById('root');
+  
   ReactDOM.render(<Linker store={store}/>, root);
 });
