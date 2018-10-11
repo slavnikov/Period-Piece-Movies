@@ -14,8 +14,6 @@ class SearchController < ApplicationController
       .or(Movie.where('end_date < ? AND end_date > ?', query_end, query_start))
       .or(Movie.where('start_date <= ? AND end_date >= ?', query_start, query_end))
 
-      debugger
-
     render '/api/movies/index.json.jbuilder'
   end
 end

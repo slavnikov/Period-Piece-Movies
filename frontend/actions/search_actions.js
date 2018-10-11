@@ -9,6 +9,14 @@ export const searchByName = (query) => {
   };
 };
 
+export const searchByDateRange = (startDate, endDate) => {
+  return (dispatch) => {
+    SearchAPI.searchByDateRange(startDate, endDate).then((payload) => {
+      return dispatch(receiveMovies(payload));
+    });
+  };
+};
+
 export const receiveMovies = (payload) => {
   return ({
     type: RECEIVE_MOVIES,

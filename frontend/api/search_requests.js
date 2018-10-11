@@ -15,7 +15,7 @@ export const searchByDateRange = (startDate, endDate) => {
     $.ajax({
       method: 'get',
       url: '/search/by_date_range',
-      date: {
+      data: {
         startDate: startDate,
         endDate: endDate,
       }
