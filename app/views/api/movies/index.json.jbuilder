@@ -10,10 +10,12 @@ end
 
 json.set! 'tmdbMovies', {}
 
-@tmdb_movies.each do |tmdb_movie|
+# @tmdb_movies.each do |tmdb_movie|
   json.set! 'tmdbMovies' do
-    json.set! tmdb_movie['id'] do
+    json.array! @tmdb_movies do |tmdb_movie|
+    # json.set! tmdb_movie['id'] do
+    # json.array! do
       json.partial! '/api/movies/tmdb_movie.json.jbuilder', tmdb_movie: tmdb_movie
     end
   end
-end
+# end

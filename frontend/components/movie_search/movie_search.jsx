@@ -1,4 +1,6 @@
 import React from 'react';
+import OurMovies from './our_movies';
+import TmdbMovies from './tmdb_movies';
 
 class MovieSearch extends React.Component {
   constructor(props) {
@@ -35,6 +37,8 @@ class MovieSearch extends React.Component {
             </input>
             <button>Submit</button>
           </form>
+          <OurMovies movies={this.props.movies} ourMovieIDs={this.props.ourMovieIDs}/>
+          <TmdbMovies tmdbMovies={this.props.tmdbMovies}/>
         </main>
       </div>
     );

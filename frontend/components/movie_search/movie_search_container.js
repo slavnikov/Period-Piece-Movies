@@ -4,7 +4,9 @@ import MovieSearch from './movie_search';
 
 const mapStateToProps = (state) => {
   return ({
-
+    movies: state.movies,
+    ourMovieIDs: state.searchResults.ourMovieIDs,
+    tmdbMovies: state.searchResults.tmdbMovies,
   });
 };
 
