@@ -8,7 +8,7 @@ class SearchController < ApplicationController
     )
 
     @tmdb_movies = JSON.parse(@tmdb_movies.body)['results'].select {|result| result['original_language'] == 'en'}
-
+    
     render '/api/movies/index.json.jbuilder'
   end
 

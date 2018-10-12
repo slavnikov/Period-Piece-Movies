@@ -10,6 +10,7 @@ class MovieVE extends React.Component {
       startDate: this.movie.start_date || '',
       endDate: this.movie.end_date || '',
       overview: this.movie.overview || '',
+      readOnly: true,
     };
   }
 
@@ -35,6 +36,14 @@ class MovieVE extends React.Component {
     return null;
   }
 
+  updateButton() {
+    if (this.state.readOnly) {
+      return null;
+    } else {
+      return (<button>Save Updates</button>);
+    }
+  }
+
   render () {
     if (!this.props.movie) {
       return <h1>Configuring the time machine right now...</h1>;
@@ -45,16 +54,18 @@ class MovieVE extends React.Component {
           <h2>Movie Details:</h2>
           <form>
             <label>Title</label>
-            <input onChange={this.change} type='text' value={this.state.title}></input>
+            <input onChange={this.change} type='text' value={this.state.title} disabled></input>
             <label>Year</label>
-            <input onChange={this.change} type='number' value={this.state.year}></input>
+            <input onChange={this.change} type='number' value={this.state.year} disabled></input>
             <label>Start Date</label>
-            <input onChange={this.change} type='date' value={this.state.startDate}></input>
+            <input onChange={this.change} type='date' value={this.state.startDate} disabled={this.state.readOnly}></input>
             <label>End Date</label>
-            <input onChange={this.change} type='date' value={this.state.endDate}></input>
+            <input onChange={this.change} type='date' value={this.state.endDate} disabled={this.state.readOnly}></input>
             <label>Overview</label>
-            <textarea onChange={this.change} value={this.state.overview}></textarea>
+            <textarea onChange={this.change} value={this.state.overview} disabled={this.state.readOnly}></textarea>
+            {this.updateButton()}
           </form>
+          <button onClick={() => {this.setState({readOnly: !this.state.readOnly});}}>Edit the Movie</button>
         </main>
       </div>
     );

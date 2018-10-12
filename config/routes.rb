@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get 'search/by_date_range', to: 'search#by_date_range'
 
   namespace :api, defaults: { fromat: 'json' } do
-    resources :movies, only: :show
+    resources :movies, only: [:create, :update, :show]
   end
 end
