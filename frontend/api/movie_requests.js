@@ -6,3 +6,15 @@ export const fetchMovie = (id) => {
     })
   );
 };
+
+export const updateMovie = (params) => {
+  return (
+    $.ajax({
+      method: 'patch',
+      url: `/api/movies/${params.id}`,
+      data: {
+        movie: params,
+      }
+    })
+  );
+};

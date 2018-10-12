@@ -10,6 +10,14 @@ export const fetchMovie = (id) => {
   };
 };
 
+export const updateMovie = (params) => {
+  return (dispatch) => {
+    MovieAPI.updateMovie(params).then((movie) => {
+      dispatch(receiveMovie(movie));
+    });
+  };
+};
+
 export const receiveMovie = (movie) => {
   return ({
     type: RECEIVE_MOVIE,

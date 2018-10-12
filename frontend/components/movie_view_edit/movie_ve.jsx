@@ -7,8 +7,8 @@ class MovieVE extends React.Component {
     this.state = {
       title: this.movie.title || '',
       year: this.movie.year || '',
-      startDate: this.movie.start_date || '',
-      endDate: this.movie.end_date || '',
+      start_date: this.movie.start_date || '',
+      end_date: this.movie.end_date || '',
       overview: this.movie.overview || '',
       readOnly: true,
     };
@@ -22,18 +22,14 @@ class MovieVE extends React.Component {
 
   componentWillUpdate(nextProps) {
     if (nextProps.movie && nextProps.movie.title !== this.state.title) {
-      this.setState({
-        title: nextProps.movie.title,
-        year: nextProps.movie.year,
-        startDate: nextProps.movie.start_date,
-        endDate: nextProps.movie.end_date,
-        overview: nextProps.movie.overview || '',
-      });
+      this.setState(nextProps.movie);
     }
   }
 
-  change() {
-    return null;
+  change(field) {
+    return (e) => {
+      this.setState({[field]: e.currentTarget.value});
+    };
   }
 
   updateButton() {
@@ -52,17 +48,21 @@ class MovieVE extends React.Component {
       <div>
         <main>
           <h2>Movie Details:</h2>
-          <form>
+          <form onSubmit={(e) => {
+              e.preventDefault();
+              this.props.updateMovie(this.state);
+              this.setState({readOnly: true});
+            }}>
             <label>Title</label>
-            <input onChange={this.change} type='text' value={this.state.title} disabled></input>
+            <input type='text' defaultValue={this.state.title} disabled></input>
             <label>Year</label>
-            <input onChange={this.change} type='number' value={this.state.year} disabled></input>
+            <input type='number' defaultValue={this.state.year} disabled></input>
             <label>Start Date</label>
-            <input onChange={this.change} type='date' value={this.state.startDate} disabled={this.state.readOnly}></input>
+            <input onChange={this.change('start_date')} type='date' value={this.state.start_date} disabled={this.state.readOnly}></input>
             <label>End Date</label>
-            <input onChange={this.change} type='date' value={this.state.endDate} disabled={this.state.readOnly}></input>
+            <input onChange={this.change('end_date')} type='date' value={this.state.end_date} disabled={this.state.readOnly}></input>
             <label>Overview</label>
-            <textarea onChange={this.change} value={this.state.overview} disabled={this.state.readOnly}></textarea>
+            <textarea onChange={this.change('overview')} value={this.state.overview} disabled={this.state.readOnly}></textarea>
             {this.updateButton()}
           </form>
           <button onClick={() => {this.setState({readOnly: !this.state.readOnly});}}>Edit the Movie</button>

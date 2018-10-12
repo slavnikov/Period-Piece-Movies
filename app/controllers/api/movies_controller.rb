@@ -9,6 +9,16 @@ class Api::MoviesController < ApplicationController
     end
   end
 
+  def update
+    @movie = Movie.find_by(id: params[:id])
+
+    if @movie.update(movie_params)
+      render :show
+    else
+      render json: @movie.errors.full_messages, status: 422
+    end
+  end
+
   def show
     @movie = Movie.find_by(id: params[:id])
 
@@ -18,6 +28,6 @@ class Api::MoviesController < ApplicationController
   private
 
   def movie_params
-    params.requre(:movie).permit(:title, :year, :start_date, :end_date, :overview, :poster_path)
+    params.require(:movie).permit(:title, :year, :start_date, :end_date, :overview, :poster_path)
   end
 end
