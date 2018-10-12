@@ -18,3 +18,15 @@ export const updateMovie = (params) => {
     })
   );
 };
+
+export const createMovie = (params) => {
+  return (
+    $.ajax({
+      method: 'post',
+      url: '/api/movies',
+      data: {
+        movie: params,
+      }
+    })
+  );
+};

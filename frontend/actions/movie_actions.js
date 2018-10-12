@@ -18,6 +18,14 @@ export const updateMovie = (params) => {
   };
 };
 
+export const createMovie = (params) => {
+  return (dispatch) => {
+    MovieAPI.createMovie(params).then((movie) => {
+      dispatch(receiveMovie(movie));
+    });
+  };
+};
+
 export const receiveMovie = (movie) => {
   return ({
     type: RECEIVE_MOVIE,

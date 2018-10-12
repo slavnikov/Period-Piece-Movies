@@ -12,6 +12,7 @@ const mapDispatchToProps = (dispatch) => {
   return ({
     fetchMovie: (id) => dispatch(fetchMovie(id)),
     updateMovie: (params) => dispatch(updateMovie(params)),
+    createMovie: (params) => dispatch(createMovie(params)),
   });
 };
 
