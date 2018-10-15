@@ -1,0 +1,22 @@
+html{
+  background-image: url('background.jpg');
+}
+
+h1, h2, h3, h4, h5, h6, p, label, input, button, ul, li, button, a, textarea {
+  font-family: 'Nova Mono', monospace;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  background: none;
+  list-style: none;
+  text-decoration: none;
+  color: #282828;
+}
+
+:focus {
+  outline: none;
+}
+
+button, a {
+  cursor: pointer;
+}
