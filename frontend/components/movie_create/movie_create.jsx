@@ -23,12 +23,10 @@ class MovieCreate extends React.Component {
 
   componentWillUpdate(nextProps){
     const savedMovie = Object.values(nextProps.movies).filter((movie) => {
-      debugger
       return movie.title === this.state.title && movie.year === this.state.year;
     });
 
     if (savedMovie[0]) {
-      debugger
       this.setState({savedMovieID: savedMovie[0].id});
     }
   }
