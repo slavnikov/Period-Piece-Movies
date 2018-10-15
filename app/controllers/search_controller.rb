@@ -1,6 +1,7 @@
 class SearchController < ApplicationController
   def by_name
-    @movies = Movie.where("lower (title) like ?", "%#{params['query']}%")
+    query = params['query'].downcase
+    @movies = Movie.where("lower (title) like ?", "%#{query}%")
 
     @tmdb_movies = RestClient::Request.execute(
       method: :get,
@@ -8,7 +9,7 @@ class SearchController < ApplicationController
     )
 
     @tmdb_movies = JSON.parse(@tmdb_movies.body)['results'].select {|result| result['original_language'] == 'en'}
-    
+
     render '/api/movies/index.json.jbuilder'
   end
 
