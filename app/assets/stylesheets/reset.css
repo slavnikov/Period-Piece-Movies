@@ -1,5 +1,8 @@
-html{
+html, body{
   background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 h1, h2, h3, h4, h5, h6, p, label, input, button, ul, li, button, a, textarea {
@@ -7,10 +10,14 @@ h1, h2, h3, h4, h5, h6, p, label, input, button, ul, li, button, a, textarea {
   margin: 0px;
   padding: 0px;
   border: none;
-  background: none;
   list-style: none;
   text-decoration: none;
   color: #282828;
+  background: none;
+}
+
+div, main {
+  background: inherit;
 }
 
 :focus {

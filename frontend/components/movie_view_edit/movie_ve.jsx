@@ -47,7 +47,11 @@ class MovieVE extends React.Component {
     return (
       <div>
         <main>
-          <h2>Movie Details:</h2>
+          <div className='heading-glass-pane'>
+            <div className='glass-container'>
+              <h2>Movie Details:</h2>
+            </div>
+          </div>
           <form onSubmit={(e) => {
               e.preventDefault();
               this.props.updateMovie(this.state);
