@@ -9,9 +9,9 @@ export const searchByName = (query) => {
   };
 };
 
-export const searchByDateRange = (startDate, endDate) => {
+export const searchByDateRange = (startYear, endYear) => {
   return (dispatch) => {
-    SearchAPI.searchByDateRange(startDate, endDate).then((payload) => {
+    SearchAPI.searchByDateRange(startYear, endYear).then((payload) => {
       return dispatch(receiveMovies(payload));
     });
   };

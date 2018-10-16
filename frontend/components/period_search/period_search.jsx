@@ -6,14 +6,14 @@ class PeriodSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: null,
-      endDate: null,
+      startYear: 0,
+      endYear: 0,
     };
   }
 
   sendSearch(e) {
     e.preventDefault();
-    this.props.searchByDateRange(this.state.startDate, this.state.endDate);
+    this.props.searchByDateRange(this.state.startYear, this.state.endYear);
   }
 
   updateQuery(field) {
@@ -34,10 +34,10 @@ class PeriodSearch extends React.Component {
         <div className='glass-pane'>
           <div className='glass-container flex-row'>
             <form onSubmit={this.sendSearch.bind(this)}>
-              <label>Start Date</label>
-              <input type='date' value={this.props.startDate} onChange={this.updateQuery('startDate')}></input>
-              <label>End Date</label>
-              <input type='date' value={this.props.endDate} onChange={this.updateQuery('endDate')}></input>
+              <label>Start Year</label>
+              <input type='number' value={this.props.startYear} onChange={this.updateQuery('startYear')}></input>
+              <label>End Year</label>
+              <input type='number' value={this.props.endYear} onChange={this.updateQuery('endYear')}></input>
               <button className='left-margin'>Search</button>
             </form>
           </div>

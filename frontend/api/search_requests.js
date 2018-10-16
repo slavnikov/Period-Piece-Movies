@@ -10,14 +10,14 @@ export const searchByName = (query) => {
   );
 };
 
-export const searchByDateRange = (startDate, endDate) => {
+export const searchByDateRange = (startYear, endYear) => {
   return (
     $.ajax({
       method: 'get',
       url: '/search/by_date_range',
       data: {
-        startDate: startDate,
-        endDate: endDate,
+        startYear: startYear,
+        endYear: endYear,
       }
     })
   );

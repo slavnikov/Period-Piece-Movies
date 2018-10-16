@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    searchByDateRange: (startDate, endDate) => dispatch(searchByDateRange(startDate, endDate)),
+    searchByDateRange: (startYear, endYear) => dispatch(searchByDateRange(startYear, endYear)),
   });
 };
 
