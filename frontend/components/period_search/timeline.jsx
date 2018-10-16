@@ -10,12 +10,12 @@ class Timeline extends React.Component {
   }
 
   drag(e) {
-    const leftBound = document.getElementById('timeline').getBoundingClientRect().left;
+    const leftBound = this.getLeftBound();
     this.setState({[e.currentTarget.id]: e.pageX - leftBound});
   }
 
   drop(e) {
-    const leftBound = document.getElementById('timeline').getBoundingClientRect().left;
+    const leftBound = this.getLeftBound();
     const location = e.pageX - leftBound;
 
     let finalLocation;
@@ -26,7 +26,7 @@ class Timeline extends React.Component {
     } else {
       finalLocation = location;
     }
-    this.setState({[e.currentTarget.id]: finalLocation});
+    this.setState({[e.currentTarget.id]: finalLocation}, this.determineDateRange);
   }
 
   draggableLocation(slider) {
@@ -46,6 +46,18 @@ class Timeline extends React.Component {
 
   getRightBound() {
     return document.getElementById('timeline').getBoundingClientRect().width-5;
+  }
+
+  getLeftBound() {
+    return document.getElementById('timeline').getBoundingClientRect().left;
+  }
+
+  determineDateRange() {
+    const lower = this.state.slider1 < this.state.slider2 ? this.state.slider1 : this.state.slider2;
+    const higher = this.state.slider1 > this.state.slider2 ? this.state.slider1 : this.state.slider2;
+
+    console.log(Math.floor(4000 * (lower-15) / this.getRightBound()) - 2000);
+    console.log(Math.ceil(4000 * (higher) / this.getRightBound()) - 2000);
   }
 
   render () {
