@@ -5,10 +5,10 @@
   height: fit-content;
   width: fit-content;
   box-shadow:
-    -4px -4px 0px rgba(240, 253, 255, 0.55),
-    4px 4px 0px rgba(240, 253, 255, 0.55),
-    4px -4px 0px rgba(240, 253, 255, 0.55),
-    -4px 4px 0px rgba(240, 253, 255, 0.55);
+    -4px -4px 0px rgba(240, 253, 255, 0.15),
+    4px 4px 0px rgba(240, 253, 255, 0.15),
+    4px -4px 0px rgba(240, 253, 255, 0.15),
+    -4px 4px 0px rgba(240, 253, 255, 0.15);
   transition: padding 0.5s;
   margin: 25px;
 }
@@ -28,7 +28,7 @@
   top: -50px;
   bottom: 0;
   box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.3);
-  filter: blur(2px);
+  filter: blur(3px);
 }
 
 .glass-container {
@@ -37,7 +37,7 @@
   height: fit-content;
   width: fit-content;
   background: none;
-  background-color: rgba(240, 253, 255, 0.4);
+  background-color: rgba(240, 253, 255, 0.1);
   padding: 10px 15px;
   transition: padding 0.5s;
 }

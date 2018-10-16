@@ -1,12 +1,12 @@
 html, body{
-  background-image: url('background.jpg');
+  background-image: url('background2.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: 1920px 1080px;
 }
 
 h1, h2, h3, h4, h5, h6, p, input, button, ul, li, button, a, form, textarea {
-  font-family: 'Nova Mono', monospace;
+  font-family: 'Prosto One', cursive;
   margin: 0px;
   padding: 0px;
   border: none;
