@@ -24,7 +24,7 @@ class PeriodSearch extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='flex-column-center'>
         <div className='glass-pane'>
           <div className='glass-container'>
             <h2>Search for movies within a date range.</h2>
