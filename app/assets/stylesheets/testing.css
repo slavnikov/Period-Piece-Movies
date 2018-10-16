@@ -1,0 +1,13 @@
+#timeline {
+  height: 20px;
+  background-color: black;
+  width: 75vw;
+  display: flex;
+}
+
+div[id^='slider'] {
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  position: absolute;
+}

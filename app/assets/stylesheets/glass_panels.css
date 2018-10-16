@@ -18,8 +18,8 @@
 } */
 
 .glass-pane::before {
-  height: 1920px;
-  width: 1080px;
+  height: 1080px;
+  width: 1920px;
   content: "";
   background: inherit;
   position: absolute;
@@ -29,6 +29,7 @@
   bottom: 0;
   box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.3);
   filter: blur(3px);
+  margin: 25px;
 }
 
 .glass-container {
