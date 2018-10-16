@@ -8,8 +8,8 @@ class MovieCreate extends React.Component {
     this.state = {
       title: this.movie.title,
       year: this.movie.year || '',
-      start_date: '',
-      end_date: '',
+      start_year: 0,
+      end_year: 0,
       overview: this.movie.overview || '',
       savedMovieID: false,
     };
@@ -72,18 +72,18 @@ class MovieCreate extends React.Component {
                     </tr>
                     <tr>
                       <td>
-                        <label>Start Date</label>
+                        <label>Start Year</label>
                       </td>
                       <td>
-                        <input onChange={this.change('start_date')} type='date' value={this.state.start_date} disabled={this.state.readOnly}></input>
+                        <input onChange={this.change('start_year')} type='number' value={this.state.start_year} disabled={this.state.readOnly}></input>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        <label>End Date</label>
+                        <label>End Year</label>
                       </td>
                       <td>
-                        <input onChange={this.change('end_date')} type='date' value={this.state.end_date} disabled={this.state.readOnly}></input>
+                        <input onChange={this.change('end_year')} type='number' value={this.state.end_year} disabled={this.state.readOnly}></input>
                       </td>
                     </tr>
                     <tr>

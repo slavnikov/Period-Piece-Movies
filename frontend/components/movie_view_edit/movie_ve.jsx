@@ -7,8 +7,8 @@ class MovieVE extends React.Component {
     this.state = {
       title: this.movie.title || '',
       year: this.movie.year || '',
-      start_date: this.movie.start_date || '',
-      end_date: this.movie.end_date || '',
+      start_year: this.movie.start_year || 0,
+      end_year: this.movie.end_year || 0,
       overview: this.movie.overview || '',
       readOnly: true,
     };
@@ -30,14 +30,6 @@ class MovieVE extends React.Component {
     return (e) => {
       this.setState({[field]: e.currentTarget.value});
     };
-  }
-
-  updateButton() {
-    if (this.state.readOnly) {
-      return null;
-    } else {
-      return (<button>Save Updates</button>);
-    }
   }
 
   anyChanges() {
@@ -104,24 +96,24 @@ class MovieVE extends React.Component {
                   </tr>
                   <tr>
                     <td>
-                      <label>Start Date</label>
+                      <label>Start Year</label>
                     </td>
                     <td>
                       <input
-                        onChange={this.change('start_date')}
-                        type='date'
-                        value={this.state.start_date}
+                        onChange={this.change('start_year')}
+                        type='number'
+                        value={this.state.start_year}
                         disabled={this.state.readOnly}></input>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <label>End Date</label>
+                      <label>End Year</label>
                     </td>
                     <td>
                       <input
-                        onChange={this.change('end_date')}
-                        type='date' value={this.state.end_date}
+                        onChange={this.change('end_year')}
+                        type='number' value={this.state.end_year}
                         disabled={this.state.readOnly}></input>
                     </td>
                   </tr>
