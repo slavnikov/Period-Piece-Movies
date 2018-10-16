@@ -24,15 +24,27 @@ class PeriodSearch extends React.Component {
   render () {
     return (
       <div>
-        <h1>Search for movies within a date range.</h1>
-        <form onSubmit={this.sendSearch.bind(this)}>
-          <label>Start Date</label>
-          <input type='date' value={this.props.startDate} onChange={this.updateQuery('startDate')}></input>
-          <label>End Date</label>
-          <input type='date' value={this.props.endDate} onChange={this.updateQuery('endDate')}></input>
-          <button>Search</button>
-        </form>
-        <OurMovies movies={this.props.movies} ourMovieIDs={this.props.ourMovieIDs}/>
+        <div className='glass-pane'>
+          <div className='glass-container'>
+            <h2>Search for movies within a date range.</h2>
+          </div>
+        </div>
+        <div className='glass-pane'>
+          <div className='glass-container flex-row'>
+            <form onSubmit={this.sendSearch.bind(this)}>
+              <label>Start Date</label>
+              <input type='date' value={this.props.startDate} onChange={this.updateQuery('startDate')}></input>
+              <label>End Date</label>
+              <input type='date' value={this.props.endDate} onChange={this.updateQuery('endDate')}></input>
+              <button className='left-margin'>Search</button>
+            </form>
+          </div>
+        </div>
+        <div className='glass-pane'>
+          <div className='glass-container'>
+            <OurMovies movies={this.props.movies} ourMovieIDs={this.props.ourMovieIDs}/>
+          </div>
+        </div>
       </div>
     );
   }

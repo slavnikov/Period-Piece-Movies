@@ -25,20 +25,30 @@ class MovieSearch extends React.Component {
     return (
       <div>
         <main>
-          <header>
-            <h1>Search for Movies in our timeline!</h1>
-          </header>
-          <form onSubmit={this.sendSearch}>
-            <label>Movie Name or Part</label>
-            <input
-              type='text'
-              value={this.state.query}
-              onChange={this.updateQuery}>
-            </input>
-            <button>Submit</button>
-          </form>
-          <OurMovies movies={this.props.movies} ourMovieIDs={this.props.ourMovieIDs}/>
-          <TmdbMovies tmdbMovies={this.props.tmdbMovies}/>
+          <div className='glass-pane'>
+            <div className='glass-container'>
+              <h2>Movie Search</h2>
+            </div>
+          </div>
+          <div className='glass-pane'>
+            <div className='glass-container flex-row'>
+              <form onSubmit={this.sendSearch}>
+                <label>Movie Name </label>
+                <input
+                  type='text'
+                  value={this.state.query}
+                  onChange={this.updateQuery}>
+                </input>
+                <button className='left-margin'>Submit</button>
+              </form>
+            </div>
+          </div>
+          <div className='glass-pane'>
+            <div className='glass-container flex-row'>
+              <OurMovies movies={this.props.movies} ourMovieIDs={this.props.ourMovieIDs}/>
+              <TmdbMovies tmdbMovies={this.props.tmdbMovies}/>
+            </div>
+          </div>
         </main>
       </div>
     );

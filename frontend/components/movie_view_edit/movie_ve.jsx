@@ -49,11 +49,23 @@ class MovieVE extends React.Component {
 
   button() {
     if (this.state.readOnly) {
-      return (<button onClick={() => {this.setState({readOnly: false});}}>Edit the Movie</button>);
+      return (<button
+        onClick={() => {this.setState({readOnly: false});}}
+        className='pseudo-center'>
+        Edit the Movie
+      </button>);
     } else if(this.anyChanges()) {
-      return (<button onClick={() => {this.props.updateMovie(this.state); this.setState({readOnly: true});}}>Save Changes</button>);
+      return (<button
+        onClick={() => {this.props.updateMovie(this.state); this.setState({readOnly: true});}}
+        className='pseudo-center'>
+        Save Changes
+      </button>);
     } else {
-      return (<button onClick={() => {this.setState({readOnly: true});}}>Cancel</button>);
+      return (<button
+        onClick={() => {this.setState({readOnly: true});}}
+        className='pseudo-center'>
+        Cancel
+      </button>);
     }
   }
 
@@ -73,6 +85,7 @@ class MovieVE extends React.Component {
             <div className='glass-container flex-column'>
               <form className='flex-column'>
                 <table>
+                <tbody>
                   <tr>
                     <td>
                       <label>Title</label>
@@ -123,6 +136,7 @@ class MovieVE extends React.Component {
                         disabled={this.state.readOnly}></textarea>
                     </td>
                   </tr>
+                </tbody>
                 </table>
               </form>
               {this.button()}
