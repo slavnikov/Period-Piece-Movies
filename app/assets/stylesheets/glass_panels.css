@@ -1,4 +1,4 @@
-.heading-glass-pane {
+.glass-pane {
   background: inherit;
   position: relative;
   overflow: hidden;
@@ -9,16 +9,17 @@
     4px 4px 0px rgba(240, 253, 255, 0.55),
     4px -4px 0px rgba(240, 253, 255, 0.55),
     -4px 4px 0px rgba(240, 253, 255, 0.55);
-    transition: padding 0.5s;
+  transition: padding 0.5s;
+  margin: 25px;
 }
 
-.heading-glass-pane:focus {
+/* .glass-pane:focus-within {
   padding: 0px 20px 0px 0px;
-}
+} */
 
-.heading-glass-pane::before {
-  height: 500px;
-  width: 500px;
+.glass-pane::before {
+  height: 1920px;
+  width: 1080px;
   content: "";
   background: inherit;
   position: absolute;
@@ -33,14 +34,14 @@
 .glass-container {
   position: relative;
   background: none;
-  height: 100%;
-  width: 100%;
+  height: fit-content;
+  width: fit-content;
   background: none;
   background-color: rgba(240, 253, 255, 0.4);
   padding: 10px 15px;
   transition: padding 0.5s;
 }
 
-.glass-container:focus {
+/* .glass-container:focus-within {
   padding: 10px 35px;
-}
+} */

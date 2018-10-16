@@ -20,7 +20,7 @@ class MovieVE extends React.Component {
     }
   }
 
-  componentWillUpdate(nextProps) {
+  componentWillUpdate(nextProps, nextState) {
     if (nextProps.movie && nextProps.movie.title !== this.state.title) {
       this.setState(nextProps.movie);
     }
@@ -40,6 +40,23 @@ class MovieVE extends React.Component {
     }
   }
 
+  anyChanges() {
+    return Object.keys(this.props.movie).some((param) => {
+      if (param === 'id') {return false;}
+      return this.props.movie[param] !== this.state[param];
+    });
+  }
+
+  button() {
+    if (this.state.readOnly) {
+      return (<button onClick={() => {this.setState({readOnly: false});}}>Edit the Movie</button>);
+    } else if(this.anyChanges()) {
+      return (<button onClick={() => {this.props.updateMovie(this.state); this.setState({readOnly: true});}}>Save Changes</button>);
+    } else {
+      return (<button onClick={() => {this.setState({readOnly: true});}}>Cancel</button>);
+    }
+  }
+
   render () {
     if (!this.props.movie) {
       return <h1>Configuring the time machine right now...</h1>;
@@ -47,29 +64,70 @@ class MovieVE extends React.Component {
     return (
       <div>
         <main>
-          <div className='heading-glass-pane'>
+          <div className='glass-pane'>
             <div className='glass-container'>
               <h2>Movie Details:</h2>
             </div>
           </div>
-          <form onSubmit={(e) => {
-              e.preventDefault();
-              this.props.updateMovie(this.state);
-              this.setState({readOnly: true});
-            }}>
-            <label>Title</label>
-            <input type='text' defaultValue={this.state.title} disabled></input>
-            <label>Year</label>
-            <input type='number' defaultValue={this.state.year} disabled></input>
-            <label>Start Date</label>
-            <input onChange={this.change('start_date')} type='date' value={this.state.start_date} disabled={this.state.readOnly}></input>
-            <label>End Date</label>
-            <input onChange={this.change('end_date')} type='date' value={this.state.end_date} disabled={this.state.readOnly}></input>
-            <label>Overview</label>
-            <textarea onChange={this.change('overview')} value={this.state.overview} disabled={this.state.readOnly}></textarea>
-            {this.updateButton()}
-          </form>
-          <button onClick={() => {this.setState({readOnly: !this.state.readOnly});}}>Edit the Movie</button>
+          <div className='glass-pane'>
+            <div className='glass-container flex-column'>
+              <form className='flex-column'>
+                <table>
+                  <tr>
+                    <td>
+                      <label>Title</label>
+                    </td>
+                    <td>
+                      <input type='text' defaultValue={this.state.title} disabled></input>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>Year</label>
+                    </td>
+                    <td>
+                      <input type='number' defaultValue={this.state.year} disabled></input>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>Start Date</label>
+                    </td>
+                    <td>
+                      <input
+                        onChange={this.change('start_date')}
+                        type='date'
+                        value={this.state.start_date}
+                        disabled={this.state.readOnly}></input>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>End Date</label>
+                    </td>
+                    <td>
+                      <input
+                        onChange={this.change('end_date')}
+                        type='date' value={this.state.end_date}
+                        disabled={this.state.readOnly}></input>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>Overview</label>
+                    </td>
+                    <td>
+                      <textarea
+                        onChange={this.change('overview')}
+                        value={this.state.overview}
+                        disabled={this.state.readOnly}></textarea>
+                    </td>
+                  </tr>
+                </table>
+              </form>
+              {this.button()}
+            </div>
+          </div>
         </main>
       </div>
     );

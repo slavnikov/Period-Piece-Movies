@@ -5,14 +5,14 @@ html, body{
   background-size: cover;
 }
 
-h1, h2, h3, h4, h5, h6, p, label, input, button, ul, li, button, a, textarea {
+h1, h2, h3, h4, h5, h6, p, input, button, ul, li, button, a, form, textarea {
   font-family: 'Nova Mono', monospace;
   margin: 0px;
   padding: 0px;
   border: none;
   list-style: none;
   text-decoration: none;
-  color: #282828;
+  color: #000000;
   background: none;
 }
 
