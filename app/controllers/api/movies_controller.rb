@@ -28,6 +28,6 @@ class Api::MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :year, :start_date, :end_date, :overview, :poster_path)
+    params.require(:movie).permit(:title, :year, :start_year, :end_year, :overview, :poster_path)
   end
 end
