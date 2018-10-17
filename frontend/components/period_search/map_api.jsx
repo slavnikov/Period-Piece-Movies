@@ -9,15 +9,17 @@ class MapApi extends React.Component {
 
   componentDidMount() {
     let map;
-    map = new window.google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: -34.397, lng: 150.644},
-      zoom: 5
+      zoom: 3
     });
   }
 
   render () {
     return (
-      <span id='map' style={{ width: 500, height: 500 }}>
+      <span
+        id='map'
+        className='glass-border'>
       </span>
     );
   }

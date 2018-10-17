@@ -34,11 +34,6 @@ class PeriodSearch extends React.Component {
           minYear={this.state.minYear}
           maxYear={this.state.maxYear}
         />
-        <div className='glass-pane'>
-          <div className='glass-container'>
-            <OurMovies movies={this.props.movies} ourMovieIDs={this.props.ourMovieIDs}/>
-          </div>
-        </div>
         <MapApi/>
       </div>
     );

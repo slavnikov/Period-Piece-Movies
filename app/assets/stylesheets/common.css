@@ -74,7 +74,10 @@ button:hover {
 }
 
 #map {
+  width: 75vw;
+  height: 35vw;
   background: none;
+  opacity: 0.9;
 }
 
 #map div {
