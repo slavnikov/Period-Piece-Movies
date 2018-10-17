@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6, p, input, button, ul, li, button, a, form, textarea {
   background: none;
 }
 
-div, main {
+div, main, header{
   background: inherit;
 }
 

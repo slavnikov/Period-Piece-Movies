@@ -42,15 +42,15 @@ textarea {
   resize: none;
 }
 
-textarea::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 5px;
 }
 
-textarea::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     background: transparent;
 }
 
-textarea::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background: #282828aa;
 }
 

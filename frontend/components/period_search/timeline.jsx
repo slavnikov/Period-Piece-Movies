@@ -6,14 +6,20 @@ class Timeline extends React.Component {
     this.state = {
       slider1: 15,
       slider2: 200,
-      year1: '',
-      year2: '',
+      year1: -2000,
+      year2: 2000,
     };
   }
 
   componentDidMount() {
     this.setRightBound();
     window.addEventListener('resize', this.setRightBound.bind(this));
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.maxYear !== prevProps.maxYear || this.props.minYear !== prevProps.minYear) {
+      this.launchSearch();
+    }
   }
 
   getRightBound() {
@@ -61,10 +67,13 @@ class Timeline extends React.Component {
   }
 
   determineDateRange() {
+    const minYear = this.props.minYear;
+    const maxYear = this.props.maxYear;
+    const span = maxYear - minYear;
     const lower = this.state.slider1 < this.state.slider2 ? this.state.slider1 : this.state.slider2;
     const higher = this.state.slider1 > this.state.slider2 ? this.state.slider1 : this.state.slider2;
-    const year1 = Math.floor(4000 * (lower-15) / this.getRightBound()) - 2000;
-    const year2 = Math.ceil(4000 * (higher) / this.getRightBound()) - 2000;
+    const year1 = Math.floor(span * ((lower-15) / this.getRightBound())) + minYear;
+    const year2 = Math.ceil(span * ((higher) / this.getRightBound())) + minYear;
 
     this.setState({year1: year1, year2: year2});
     return [year1, year2];

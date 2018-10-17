@@ -1,0 +1,22 @@
+.period-select {
+  width: 20vw;
+}
+
+.select-wrapper {
+  height: 30px;
+  transition: height 0.5s;
+}
+
+.select-wrapper ul {
+  margin-top: 10px;
+  height: 60%;
+  overflow-y: scroll;
+}
+
+.select-wrapper li {
+  cursor: pointer;
+}
+
+.select-wrapper:hover {
+  height: 100px;
+}
