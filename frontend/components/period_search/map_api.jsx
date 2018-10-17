@@ -17,8 +17,8 @@ class MapApi extends React.Component {
 
   render () {
     return (
-      <aside id='map' style={{ width: 500, height: 500 }}>
-      </aside>
+      <span id='map' style={{ width: 500, height: 500 }}>
+      </span>
     );
   }
 }

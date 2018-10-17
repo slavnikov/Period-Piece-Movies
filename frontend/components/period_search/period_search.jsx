@@ -39,9 +39,7 @@ class PeriodSearch extends React.Component {
             <OurMovies movies={this.props.movies} ourMovieIDs={this.props.ourMovieIDs}/>
           </div>
         </div>
-
-            <MapApi/>
-
+        <MapApi/>
       </div>
     );
   }
