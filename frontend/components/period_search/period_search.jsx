@@ -2,6 +2,7 @@ import React from 'react';
 import OurMovies from '../movie_search/our_movies';
 import Timeline from './timeline';
 import PeriodSelector from './period_selector';
+import MapApi from './map_api';
 
 class PeriodSearch extends React.Component {
   constructor(props) {
@@ -38,6 +39,9 @@ class PeriodSearch extends React.Component {
             <OurMovies movies={this.props.movies} ourMovieIDs={this.props.ourMovieIDs}/>
           </div>
         </div>
+
+            <MapApi/>
+
       </div>
     );
   }
