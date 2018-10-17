@@ -78,7 +78,7 @@ class Timeline extends React.Component {
   render () {
     return (
       <div className='glass-pane'>
-        <div className='glass-container'>
+        <div className='glass-container flex-column-center'>
           <div id='timeline'>
             <div
               id='slider1'

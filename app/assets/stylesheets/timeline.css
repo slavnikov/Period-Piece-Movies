@@ -1,13 +1,15 @@
 #timeline {
   height: 20px;
-  background-color: black;
+  background-color: rgba(0,0,0,0.2);
   width: 75vw;
   display: flex;
+  border-radius: 50%;
 }
 
 div[id^='slider'] {
   height: 20px;
   width: 20px;
-  background-color: white;
+  background-color: rgba(50,50,50,0.8);
   position: absolute;
+  border-radius: 50%;
 }
