@@ -1,7 +1,5 @@
 import React from 'react';
 
-const GM_API_KEY = process.env.GM_API_KEY;
-
 class MapApi extends React.Component {
   constructor(props) {
     super(props);
@@ -12,6 +10,10 @@ class MapApi extends React.Component {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: -34.397, lng: 150.644},
       zoom: 3
+    });
+
+    map.addListener('click', (e) => {
+      this.props.setLatLng(e.latLng.lat(), e.latLng.lng());
     });
   }
 

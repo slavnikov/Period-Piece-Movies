@@ -4,13 +4,14 @@ import Linker from './components/linker';
 import configureStore from './store/store';
 
 import { fetchMovie } from './actions/movie_actions';
+import { fetchLocation } from './api/external_requests';
 
 const store = configureStore();
 
 window.getState = store.getState;
 window.dispatch = store.dispatch;
 
-window.fetchMovie = fetchMovie;
+window.fetchLocation = fetchLocation;
 
 
 document.addEventListener("DOMContentLoaded", () => {
