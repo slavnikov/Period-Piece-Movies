@@ -12,8 +12,8 @@ class MovieVE extends React.Component {
       start_year: this.movie.start_year || 0,
       end_year: this.movie.end_year || 0,
       overview: this.movie.overview || '',
-      lat: this.movie.lat,
-      lng: this.movie.lng,
+      lat: this.movie.lat = this.movie.lat,
+      lng: this.movie.lng = this.movie.lng,
       location: '',
       readOnly: true,
     };
@@ -29,6 +29,12 @@ class MovieVE extends React.Component {
   componentWillUpdate(nextProps, nextState) {
     if (nextProps.movie && nextProps.movie.title !== this.state.title) {
       this.setState(nextProps.movie);
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.lat !== this.state.lat) {
+      this.printLocation();
     }
   }
 
@@ -77,7 +83,6 @@ class MovieVE extends React.Component {
 
   setLatLng(lat, lng) {
     this.setState({lat: lat, lng: lng});
-    this.printLocation();
   }
 
   render () {

@@ -9,11 +9,16 @@ class MapApi extends React.Component {
 
   componentDidMount() {
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
+      center: {lat: 35, lng: 5},
       zoom: 3
     });
 
     map.addListener('click', this.handleMapClick.bind(this));
+    this.drawMarkers();
+  }
+
+  componentDidUpdate() {
+    this.drawMarkers();
   }
 
   handleMapClick(e) {
@@ -35,10 +40,13 @@ class MapApi extends React.Component {
         });
       }
     });
+    if (this.props.markers.length === 1 && this.marker) {
+      map.setZoom(5);
+      map.panTo(this.marker.position);
+    }
   }
 
   render () {
-    this.drawMarkers();
     return (
       <span
         id='map'

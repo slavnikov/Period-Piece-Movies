@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_16_221620) do
+ActiveRecord::Schema.define(version: 2018_10_18_174442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2018_10_16_221620) do
     t.text "overview"
     t.integer "start_year", null: false
     t.integer "end_year", null: false
+    t.float "lat"
+    t.float "lng"
     t.index ["end_date"], name: "index_movies_on_end_date"
     t.index ["start_date"], name: "index_movies_on_start_date"
     t.index ["title", "year"], name: "index_movies_on_title_and_year", unique: true
