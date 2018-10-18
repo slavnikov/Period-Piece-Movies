@@ -34,7 +34,7 @@ class PeriodSearch extends React.Component {
           minYear={this.state.minYear}
           maxYear={this.state.maxYear}
         />
-        <MapApi/>
+        <MapApi markers={[]}/>
       </div>
     );
   }

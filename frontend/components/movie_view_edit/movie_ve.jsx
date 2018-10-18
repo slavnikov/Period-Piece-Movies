@@ -7,6 +7,7 @@ class MovieVE extends React.Component {
     super(props);
     this.movie = this.props.movie || {};
     this.state = {
+      id: this.movie.id,
       title: this.movie.title || '',
       year: this.movie.year || '',
       start_year: this.movie.start_year || 0,

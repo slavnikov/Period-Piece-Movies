@@ -4,7 +4,7 @@ let map;
 class MapApi extends React.Component {
   constructor(props) {
     super(props);
-    this.marker = null;
+    this.currMarkers = [];
   }
 
   componentDidMount() {
@@ -29,20 +29,29 @@ class MapApi extends React.Component {
     }
   }
 
+  clearMarkers() {
+    for (let marker of this.currMarkers) {
+      marker.setMap(null);
+    }
+    this.currMarkers = [];
+  }
+
   drawMarkers() {
+    this.clearMarkers();
+
     this.props.markers.forEach((marker) => {
       if (marker.lat && marker.lng) {
-        if (this.marker) {this.marker.setMap(null);}
-        this.marker = new google.maps.Marker({
+        this.currMarkers.push(new google.maps.Marker({
           position: {lat: marker.lat, lng: marker.lng},
           map: map,
           title: marker.title,
-        });
+        }));
       }
     });
-    if (this.props.markers.length === 1 && this.marker) {
+
+    if (this.props.markers.length === 1 && this.currMarkers[0]) {
       map.setZoom(5);
-      map.panTo(this.marker.position);
+      map.panTo(this.currMarkers[0].position);
     }
   }
 
