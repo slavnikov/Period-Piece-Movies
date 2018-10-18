@@ -18,6 +18,12 @@ class PeriodSearch extends React.Component {
     console.log(this.state);
   }
 
+  filterMovies() {
+    return Object.values(this.props.movies).filter((movie) => {
+      return this.props.ourMovieIDs.includes(movie.id);
+    });
+  }
+
   render () {
     return (
       <div className='flex-column-center'>
@@ -34,7 +40,7 @@ class PeriodSearch extends React.Component {
           minYear={this.state.minYear}
           maxYear={this.state.maxYear}
         />
-        <MapApi markers={[]}/>
+      <MapApi markers={this.filterMovies()}/>
       </div>
     );
   }

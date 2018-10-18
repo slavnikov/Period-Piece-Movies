@@ -10,7 +10,7 @@ class MapApi extends React.Component {
   componentDidMount() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 35, lng: 5},
-      zoom: 3
+      zoom: 2
     });
 
     map.addListener('click', this.handleMapClick.bind(this));
