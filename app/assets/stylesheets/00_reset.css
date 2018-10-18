@@ -3,6 +3,11 @@ html, body{
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 1920px 1080px;
+  margin: 0px;
+}
+
+body {
+  padding-top: 60px;
 }
 
 h1, h2, h3, h4, h5, h6, p, input, button, ul, li, button, a, form, textarea {

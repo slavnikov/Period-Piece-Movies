@@ -27,7 +27,7 @@
 
 .glass-pane::before {
   height: 1080px;
-  width: 1920px;
+  width: 2000px;
   content: "";
   background: inherit;
   position: absolute;
