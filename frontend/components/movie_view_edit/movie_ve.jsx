@@ -162,7 +162,11 @@ class MovieVE extends React.Component {
                 {this.button()}
               </div>
             </div>
-            <MapApi setLatLng={this.setLatLng.bind(this)}/>
+            <MapApi
+              readOnly={this.state.readOnly}
+              setLatLng={this.setLatLng.bind(this)}
+              markers={[{lat: this.state.lat, lng: this.state.lng, title: this.state.title}]}
+            />
           </div>
         </main>
       </div>
