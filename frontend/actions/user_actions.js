@@ -1,11 +1,12 @@
 import * as UserAPI from '../api/user_requests';
+import { receiveCurrentUser } from './session_actions';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
 
 export const createUser = (params) => {
   return (dispatch) => {
     UserAPI.createUser(params).then((user) => {
-      dispatch(receiveUser(user));
+      dispatch(receiveCurrentUser(user));
     });
   };
 };
