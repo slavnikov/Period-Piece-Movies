@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_18_184116) do
+ActiveRecord::Schema.define(version: 2018_10_22_184312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2018_10_18_184116) do
     t.index ["start_date"], name: "index_movies_on_start_date"
     t.index ["title", "year"], name: "index_movies_on_title_and_year", unique: true
     t.index ["title"], name: "index_movies_on_title"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "password_digest", null: false
+    t.string "session_token", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email"
   end
 
 end

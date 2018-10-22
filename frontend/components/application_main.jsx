@@ -4,7 +4,7 @@ import MovieSearch from './movie_search/movie_search_container';
 import MovieVE from './movie_view_edit/movie_ve_container';
 import MovieCreate from './movie_create/movie_create_container';
 import PeriodSearch from './period_search/period_search_container';
-import Header from './header/header';
+import Header from './header/header_container';
 
 const ApplicationMain = (props) => {
   return (
