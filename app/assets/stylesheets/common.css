@@ -23,6 +23,14 @@
   margin-left: 15px;
 }
 
+.wrapper {
+  background: none;
+}
+
+.no-hover {
+  pointer-events: none;
+}
+
 label {
   margin: 0px 15px;
   font-size: 25px;

@@ -8,7 +8,7 @@
 }
 
 #header:hover, #header:focus-within {
-  height: 65px;
+  height: 70px;
 }
 
 #inner-header {
@@ -20,7 +20,7 @@
 }
 
 #inner-header:hover, #inner-header:focus-within {
-  height: 45px;
+  height: 50px;
 }
 
 #header h5 {
@@ -35,6 +35,12 @@
 
 #header button {
   font-size: 12px;
-  padding: 7px;
+  padding: 7px 7px 4px 7px;
   margin-left: 12px;
+}
+
+#header h5  button {
+  margin: 0px;
+  font-weight: bold;
+  padding: 3px 3px 0px 3px;
 }
