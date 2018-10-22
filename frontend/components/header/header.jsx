@@ -14,7 +14,7 @@ class Header extends React.Component {
       return (
         <div className='glass-container flex-column-center' id='inner-header'>
           <h5 className='pseudo-center'>{this.props.currentUser.email}</h5>
-          <form><button>logout</button></form>
+          <form><button onClick={this.props.logout}>logout</button></form>
         </div>
       );
     } else {
@@ -30,7 +30,7 @@ class Header extends React.Component {
               REGISTER
             </button>
           </h5>
-          <OmniForm signIn={this.state.signIn} createUser={this.props.createUser}/>
+          <OmniForm signIn={this.state.signIn} createUser={this.props.createUser} login={this.props.login}/>
         </div>
       );
     }

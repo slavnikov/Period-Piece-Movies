@@ -36,6 +36,7 @@ class OmniForm extends React.Component {
     if (this.props.signIn) {
       return (e) => {
         e.preventDefault();
+        this.props.login(this.state);
       };
     } else {
       return (e) => {
