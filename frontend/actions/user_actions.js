@@ -5,7 +5,7 @@ export const RECEIVE_USER = 'RECEIVE_USER';
 export const createUser = (params) => {
   return (dispatch) => {
     UserAPI.createUser(params).then((user) => {
-      dispatch(receive_user(user));
+      dispatch(receiveUser(user));
     });
   };
 };
