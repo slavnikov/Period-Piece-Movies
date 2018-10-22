@@ -5,6 +5,7 @@ import { fetchMovie, updateMovie } from '../../actions/movie_actions';
 const mapStateToProps = (state, ownProps) => {
   return ({
     movie: state.movies[ownProps.match.params.movie_id],
+    currentUser: state.users[state.session.currentUserId],
   });
 };
 

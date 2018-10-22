@@ -51,7 +51,8 @@ class MovieCreate extends React.Component {
               <form onSubmit={(e) => {
                   e.preventDefault();
                   this.props.createMovie(this.state);
-                }}>
+                }}
+                className='flex-column-center'>
                 <table>
                   <tbody>
                     <tr>
@@ -96,7 +97,7 @@ class MovieCreate extends React.Component {
                     </tr>
                   </tbody>
                 </table>
-                <button>Save Movie</button>
+                {this.props.currentUser ? <button>Save Movie</button> : null}
               </form>
             </div>
           </div>

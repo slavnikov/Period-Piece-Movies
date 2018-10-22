@@ -21,7 +21,6 @@ class Header extends React.Component {
       return (
         <div className='glass-container flex-column-center' id='inner-header'>
           <h5 className='pseudo-center'>
-            HOVER TO&nbsp;
             <button onClick={() => {this.setState({signIn: true});}}>
               SIGN IN
             </button>
@@ -29,6 +28,7 @@ class Header extends React.Component {
             <button onClick={() => {this.setState({signIn: false});}}>
               REGISTER
             </button>
+            &nbsp;TO EDIT OR ADD ENTRIES
           </h5>
           <OmniForm signIn={this.state.signIn} createUser={this.props.createUser} login={this.props.login}/>
         </div>

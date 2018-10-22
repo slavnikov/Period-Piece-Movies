@@ -53,6 +53,7 @@ class MovieVE extends React.Component {
   }
 
   button() {
+    if (!this.props.currentUser) {return null;}
     if (this.state.readOnly) {
       return (<button
         onClick={() => {this.setState({readOnly: false});}}

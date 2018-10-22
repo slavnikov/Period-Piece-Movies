@@ -6,6 +6,7 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     tmdbMovie: state.searchResults.tmdbMovies[ownProps.match.params.ref_movie_id],
     movies: state.movies,
+    currentUser: state.users[state.session.currentUserId],
   });
 };
 
