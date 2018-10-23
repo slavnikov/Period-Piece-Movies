@@ -105,6 +105,20 @@ class Timeline extends React.Component {
             </div>
           </div>
           <h2>{this.state.year1} - {this.state.year2}</h2>
+          <input
+            type='range'
+            min={this.state.year1}
+            max={this.state.year2}
+            value={this.state.year1}
+            setp='1'>
+          </input>
+          <input
+            type='range'
+            min={this.state.year1}
+            max={this.state.year2}
+            value={this.state.year2}
+            step='1'>
+          </input>
         </div>
       </div>
     );

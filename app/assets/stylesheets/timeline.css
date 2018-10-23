@@ -13,3 +13,22 @@ div[id^='slider'] {
   position: absolute;
   border-radius: 50%;
 }
+
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+.timeline {
+  width: 75vw;
+  pointer-events: none;
+  border: 0px;
+  position: relative;
+}
+
+.timeline::-webkit-slider-thumb {
+  pointer-events: all;
+}
+
+#second-slider {
+  position: absolute;
+}

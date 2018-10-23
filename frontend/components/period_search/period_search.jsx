@@ -1,6 +1,6 @@
 import React from 'react';
 import OurMovies from '../movie_search/our_movies';
-import Timeline from './timeline';
+import Timeline from './timeline_new';
 import PeriodSelector from './period_selector';
 import MapApi from './map_api';
 
