@@ -20,8 +20,9 @@ export const updateMovie = (params) => {
 
 export const createMovie = (params) => {
   return (dispatch) => {
-    MovieAPI.createMovie(params).then((movie) => {
+    return MovieAPI.createMovie(params).then((movie) => {
       dispatch(receiveMovie(movie));
+      return movie;
     });
   };
 };

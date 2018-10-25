@@ -16,7 +16,7 @@ class MovieVE extends React.Component {
       lat: this.movie.lat = this.movie.lat,
       lng: this.movie.lng = this.movie.lng,
       location: '',
-      readOnly: true,
+      readOnly: this.props.match.params.movie_id === 'new' ? false : true,
     };
   }
 
@@ -56,9 +56,30 @@ class MovieVE extends React.Component {
     });
   }
 
+  readyToSave() {
+    return Object.keys(this.state).every((key) => {
+      if (key === 'location' || key === 'readOnly') {return true;}
+      return !!this.state[key] || this.state[key] === 0;
+    });
+  }
+
   button() {
     if (!this.props.currentUser) {return <h4>log in to edit entry</h4>;}
-    if (this.state.readOnly) {
+    if (this.state.id === 'new') {
+      if (this.readyToSave()) {
+        return <button
+          className='pseudo-center'
+          onClick={() => {
+            this.props.createMovie(this.state).then((r) => {
+              window.location.href = `#/movie/${Object.keys(r)[0]}`;
+            });
+          }}>
+          save entry
+        </button>;
+      } else {
+        return <button className='pseudo-center'>entry incomplete</button>;
+      }
+    } else if (this.state.readOnly) {
       return (<button
         onClick={() => {this.setState({readOnly: false});}}
         className='pseudo-center'>
@@ -92,7 +113,6 @@ class MovieVE extends React.Component {
   }
 
   render () {
-    console.log(this.state);
     if (!this.props.movie) {
       return <h1>Configuring the time machine right now...</h1>;
     }
