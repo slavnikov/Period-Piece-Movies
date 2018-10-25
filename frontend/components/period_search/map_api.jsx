@@ -41,13 +41,19 @@ class MapApi extends React.Component {
 
     this.props.markers.forEach((marker) => {
       if (marker.lat && marker.lng) {
-        this.currMarkers.push(new google.maps.Marker({
+        marker = new google.maps.Marker({
           position: {lat: marker.lat, lng: marker.lng},
           map: map,
           title: marker.title,
-        }));
+          url: `#/movie/${marker.id}`
+        });
+        this.currMarkers.push(marker);
+        google.maps.event.addListener(marker, 'click', function() {
+          window.location.href = this.url;
+        });
       }
     });
+
 
     if (this.props.markers.length === 1 && this.currMarkers[0]) {
       map.setZoom(5);
