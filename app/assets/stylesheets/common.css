@@ -33,7 +33,7 @@
 
 label {
   margin: 0px 15px;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 input, textarea {
@@ -82,7 +82,7 @@ button:hover {
 }
 
 #map {
-  width: 75vw;
+  width: 70vw;
   height: 35vw;
   background: none;
   opacity: 0.9;

@@ -22,7 +22,11 @@ class MovieVE extends React.Component {
 
   componentDidMount() {
     if (!this.props.movie) {
-      this.props.fetchMovie(this.props.match.params.movie_id);
+      if (this.props.match.params.movie_id === 'new') {
+        window.location.href = '#/movie_search';
+      } else {
+        this.props.fetchMovie(this.props.match.params.movie_id);
+      }
     }
     this.printLocation();
   }
@@ -53,7 +57,7 @@ class MovieVE extends React.Component {
   }
 
   button() {
-    if (!this.props.currentUser) {return null;}
+    if (!this.props.currentUser) {return <h4>log in to edit entry</h4>;}
     if (this.state.readOnly) {
       return (<button
         onClick={() => {this.setState({readOnly: false});}}
@@ -88,6 +92,7 @@ class MovieVE extends React.Component {
   }
 
   render () {
+    console.log(this.state);
     if (!this.props.movie) {
       return <h1>Configuring the time machine right now...</h1>;
     }
@@ -107,7 +112,7 @@ class MovieVE extends React.Component {
                     <tbody>
                       <tr>
                         <td>
-                          <label>Title</label>
+                          <label>title</label>
                         </td>
                         <td>
                           <input type='text' defaultValue={this.state.title} disabled></input>
@@ -115,7 +120,7 @@ class MovieVE extends React.Component {
                       </tr>
                       <tr>
                         <td>
-                          <label>Year</label>
+                          <label>year</label>
                         </td>
                         <td>
                           <input type='number' defaultValue={this.state.year} disabled></input>
@@ -123,7 +128,7 @@ class MovieVE extends React.Component {
                       </tr>
                       <tr>
                         <td>
-                          <label>Start Year</label>
+                          <label>start year</label>
                         </td>
                         <td>
                           <input
@@ -135,7 +140,7 @@ class MovieVE extends React.Component {
                       </tr>
                       <tr>
                         <td>
-                          <label>End Year</label>
+                          <label>end year</label>
                         </td>
                         <td>
                           <input
@@ -146,15 +151,15 @@ class MovieVE extends React.Component {
                       </tr>
                       <tr>
                         <td>
-                          <label>Location</label>
+                          <label>location</label>
                         </td>
                         <td>
-                          {this.state.location}
+                          <input type='text' defaultValue={this.state.location} disabled></input>
                         </td>
                       </tr>
                       <tr>
                         <td>
-                          <label>Overview</label>
+                          <label>overview</label>
                         </td>
                         <td>
                           <textarea

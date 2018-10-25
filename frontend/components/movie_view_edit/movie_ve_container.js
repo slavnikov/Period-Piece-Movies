@@ -3,8 +3,16 @@ import MovieVE from './movie_ve';
 import { fetchMovie, updateMovie } from '../../actions/movie_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  let movie;
+  
+  if (ownProps.match.params.movie_id === 'new') {
+    movie = state.session.tempMovie;
+  } else {
+    movie = state.movies[ownProps.match.params.movie_id];
+  }
+
   return ({
-    movie: state.movies[ownProps.match.params.movie_id],
+    movie: movie,
     currentUser: state.users[state.session.currentUserId],
   });
 };

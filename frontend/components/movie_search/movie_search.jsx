@@ -46,7 +46,7 @@ class MovieSearch extends React.Component {
           <div className='glass-pane'>
             <div className='glass-container flex-row'>
               <OurMovies movies={this.props.movies} ourMovieIDs={this.props.ourMovieIDs}/>
-              <TmdbMovies tmdbMovies={this.props.tmdbMovies}/>
+              <TmdbMovies tmdbMovies={this.props.tmdbMovies} setTempMovie={this.props.setTempMovie}/>
             </div>
           </div>
         </main>

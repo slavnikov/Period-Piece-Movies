@@ -6,7 +6,16 @@ const TmdbMovies = (props) => {
     <ul>
       {props.tmdbMovies.map((tmdbMovie, idx) => {
         return (
-          <li key={idx}><Link to={`/add_movie/${idx}`} key={idx}>{tmdbMovie.title}</Link></li>
+          <li key={idx}>
+            <Link
+              to={`/movie/new`}
+              key={idx}
+              onClick={() => {
+                props.setTempMovie(tmdbMovie);
+              }}>
+              {tmdbMovie.title}
+            </Link>
+          </li>
         );
       })}
     </ul>

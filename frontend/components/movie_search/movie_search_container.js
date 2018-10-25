@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { searchByName } from '../../actions/search_actions';
+import { setTempMovie } from '../../actions/session_actions';
 import MovieSearch from './movie_search';
 
 const mapStateToProps = (state) => {
@@ -13,6 +14,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     searchByName: (query) => dispatch(searchByName(query)),
+    setTempMovie: (movie) => dispatch(setTempMovie(movie)),
   });
 };
 
