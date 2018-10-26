@@ -1,0 +1,39 @@
+#home {
+  height: 70vh;
+  min-height: fit-content;
+  align-items: flex-start;
+}
+
+#home nav {
+}
+
+#home nav a {
+  padding: 10px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  background-color: rgba(255,255,255,0.01);
+  text-shadow: 1px 1px 2px #00000000;
+  transition: background-color 0.5s, box-shadow 0.5s, text-shadow 0.5s;
+}
+
+#home nav a:hover {
+  background-color: rgba(255,255,255,0.05);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: .1px .1px 1px #282828aa;
+}
+
+#home nav a h3 {
+  margin-bottom: 10px;
+}
+
+#home-main {
+  background-color: transparent;
+}
+
+#home-main h3 {
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+
+#home-main p {
+  padding-left: 8px;
+}

@@ -81,6 +81,23 @@ button:hover {
   text-shadow: .1px .1px 1px #282828aa;
 }
 
+.percent-w-20 {
+  width: 20% !important;
+}
+
+.percent-w-80 {
+  width: 80% !important;
+}
+
+.flex-grow-3 {
+  flex-grow: 3;
+}
+
+.fill-width {
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
 #map {
   width: 70vw;
   height: 35vw;
