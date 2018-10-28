@@ -9,7 +9,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <script src=<%="https://maps.googleapis.com/maps/api/js?key=#{ENV['GM_API_KEY']}"%> />
-    <%= javascript_include_tag 'application'%>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => false%>
   </head>
 
   <body>
