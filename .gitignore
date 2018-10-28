@@ -23,8 +23,6 @@ todo.txt
 /node_modules
 /yarn-error.log
 node_modules/
-bundle.js
-bundle.js.map
 
 /public/assets
 .byebug_history
