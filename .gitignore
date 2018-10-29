@@ -19,6 +19,7 @@ bundle.js.map
 .jshintrc
 .env
 todo.txt
+extracted_db.txt
 
 # Ignore uploaded files in development
 /storage/*

@@ -484,41 +484,41 @@ var Footer = function Footer(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "flex-row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    class: "devicon-rails-plain"
+    className: "devicon-rails-plain"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    class: "devicon-react-original"
+    className: "devicon-react-original"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    class: "devicon-postgresql-plain"
+    className: "devicon-postgresql-plain"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    class: "devicon-amazonwebservices-original"
+    className: "devicon-amazonwebservices-original"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    class: "devicon-webpack-plain"
+    className: "devicon-webpack-plain"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    class: "devicon-html5-plain"
+    className: "devicon-html5-plain"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    class: "devicon-css3-plain"
+    className: "devicon-css3-plain"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    class: "devicon-javascript-plain"
+    className: "devicon-javascript-plain"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    class: "devicon-gimp-plain"
+    className: "devicon-gimp-plain"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "flex-row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "http://www.slavnikov.com/"
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    class: "fa fa-folder-open"
+    className: "fa fa-folder-open"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://github.com/slavnikov"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    class: "fa fa-github"
+    className: "fa fa-github"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/slavnikov"
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    class: "fa fa-linkedin"
+    className: "fa fa-linkedin"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://angel.co/dmitry-slavnikov"
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    class: "fa fa-angellist"
+    className: "fa fa-angellist"
   }))))));
 };
 
