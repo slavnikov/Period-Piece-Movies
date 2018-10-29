@@ -6,8 +6,9 @@ html, body{
   margin: 0px;
 }
 
-body {
-  padding-top: 60px;
+html {
+  min-height: fit-content;
+  height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6, p, input, button, ul, li, button, a, form, textarea {

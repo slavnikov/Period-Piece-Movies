@@ -3,7 +3,7 @@
   margin: 0px;
   width: 100%;
   height: 35px;
-  position: fixed;
+  position: relative;
   z-index: 3;
   transition: height 0.5s;
 }
@@ -16,7 +16,7 @@
   width: 100%;
   height: 15px;
   transition: height 0.5s;
-  position: fixed;
+  position: relative;
   overflow-y: hidden;
 }
 

@@ -26,7 +26,7 @@ class PeriodSearch extends React.Component {
 
   render () {
     return (
-      <div className='flex-column-center'>
+      <div className='flex-column-center footer-padder'>
         <header className='flex-row'>
           <div className='glass-pane'>
             <div className='glass-container'>
