@@ -1637,7 +1637,8 @@ function (_React$Component) {
           lat: 35,
           lng: 5
         },
-        zoom: 2
+        zoom: 2,
+        minZoom: 2
       });
       map.addListener('click', this.handleMapClick.bind(this));
       this.drawMarkers();
@@ -1712,8 +1713,11 @@ function (_React$Component) {
       });
 
       if (this.props.markers.length === 1 && this.currMarkers[0]) {
-        map.setZoom(5);
         map.panTo(this.currMarkers[0].position);
+
+        if (this.props.readOnly !== undefined) {
+          map.setZoom(5);
+        }
       }
     }
   }, {
