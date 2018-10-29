@@ -477,8 +477,45 @@ var Footer = function Footer(props) {
     className: "glass-pane percent-w-100",
     id: "footer"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "glass-container percent-w-100"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", null, "hello world")));
+    className: "glass-container percent-w-100",
+    id: "inner-footer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+    className: "flex-row-space-between"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "flex-row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    class: "devicon-rails-plain"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    class: "devicon-react-original"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    class: "devicon-postgresql-plain"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    class: "devicon-amazonwebservices-original"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    class: "devicon-webpack-plain"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    class: "devicon-html5-plain"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    class: "devicon-css3-plain"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    class: "devicon-javascript-plain"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    class: "devicon-gimp-plain"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "flex-row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://github.com/slavnikov"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    class: "fa fa-github"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://www.linkedin.com/in/slavnikov"
+  }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    class: "fa fa-linkedin"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://angel.co/dmitry-slavnikov"
+  }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    class: "fa fa-angellist"
+  }))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
@@ -787,7 +824,7 @@ var HomePage = function HomePage(props) {
     className: "glass-container fill-width"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
     id: "home-main"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "welcome to ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", null, "period piece movies (v 0.1)")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "the goal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Period Piece Moves was created to allow people to explore world history through the lens of movies and tv shows set in specific time periods and specific geographic locations. The main attraction of the site is the period serach. Think of it like a time machine: you select a time period to visit, and it gives you all the possible global destinations. Try it out! Unfortunately, there is no one place on repository with information about the hisotrical setting of every movie and tv show; in fact, that is what Period Piece Movies set out to become. This kind of information can be hard to find, but where there's a will, there's a way. If you have a favorite movie - it does not have to be a documentary or docu-drama, just something with a depiction of how someplace was at sometime - make an account and add it to our databse to share with others. Your contribution will be highlighted on the homepage (feauture feature :D) and it will go a long way to making this a resoruce for hisotry buffs and amateur time-travelers alike.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Again, welcome!", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", null, "sdo 10.26.18")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "updates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.29.18 - hosted the site live on AWS Elastic Beanstalk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "future features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- extend the name search to include tv-shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- add more movies (not really a feauture, but still big improvement area)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- display on homepage the latest new database entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- credit users who have been adding new entries")))));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "welcome to ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "period piece movies (v 0.1)")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "the goal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Period Piece Moves was created to allow people to explore world history through the lens of movies and tv shows set in specific time periods and specific geographic locations. The main attraction of the site is the period serach. Think of it like a time machine: you select a time period to visit, and it gives you all the possible global destinations. Try it out! Unfortunately, there is no one place on repository with information about the hisotrical setting of every movie and tv show; in fact, that is what Period Piece Movies set out to become. This kind of information can be hard to find, but where there's a will, there's a way. If you have a favorite movie - it does not have to be a documentary or docu-drama, just something with a depiction of how someplace was at sometime - make an account and add it to our databse to share with others. Your contribution will be highlighted on the homepage (feauture feature :D) and it will go a long way to making this a resoruce for hisotry buffs and amateur time-travelers alike.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Again, welcome!", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "sdo 10.26.18")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "updates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.29.18 - hosted the site live on AWS Elastic Beanstalk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "future features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- extend the name search to include tv-shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- add more movies (not really a feauture, but still big improvement area)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- display on homepage the latest new database entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- credit users who have been adding new entries")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (HomePage);

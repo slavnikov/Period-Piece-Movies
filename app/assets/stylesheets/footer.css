@@ -3,3 +3,19 @@
   bottom: 0px;
   margin: 0px;
 }
+
+#inner-footer {
+  padding: 0px 15px;
+}
+
+i, .fa {
+  font-size: 25px;
+  margin: 5px 10px;
+  color: #00000099;
+  transition: color 0.3s;
+}
+
+.fa:hover {
+  color: #000000cc;
+
+}
