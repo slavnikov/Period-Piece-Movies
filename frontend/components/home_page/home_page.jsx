@@ -25,7 +25,12 @@ const HomePage = (props) => {
             <h3>the goal</h3>
             <p>Period Piece Moves was created to allow people to explore world history through the lens of movies and tv shows set in specific time periods and specific geographic locations. The main attraction of the site is the period serach. Think of it like a time machine: you select a time period to visit, and it gives you all the possible global destinations. Try it out! Unfortunately, there is no one place on repository with information about the hisotrical setting of every movie and tv show; in fact, that is what Period Piece Movies set out to become. This kind of information can be hard to find, but where there's a will, there's a way. If you have a favorite movie - it does not have to be a documentary or docu-drama, just something with a depiction of how someplace was at sometime - make an account and add it to our databse to share with others. Your contribution will be highlighted on the homepage (feauture feature :D) and it will go a long way to making this a resoruce for hisotry buffs and amateur time-travelers alike.<br/><br/>Again, welcome!<br/><i>sdo 10.26.18</i></p>
             <h3>updates</h3>
+            <p>10.29.18 - hosted the site live on AWS Elastic Beanstalk</p>
             <h3>future features</h3>
+            <p>- extend the name search to include tv-shows</p>
+            <p>- add more movies (not really a feauture, but still big improvement area)</p>
+            <p>- display on homepage the latest new database entries</p>
+            <p>- credit users who have been adding new entries</p>
           </main>
         </div>
       </div>
