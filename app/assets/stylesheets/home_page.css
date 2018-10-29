@@ -33,7 +33,20 @@
   margin-top: 25px;
   margin-bottom: 3px;
 }
+#home-main h3:first-child {
+  margin-top: 0px;
+  margin-bottom: 3px;
+}
 
 #home-main p {
   padding-left: 8px;
+}
+
+#aside-home {
+  padding-top: 25px;
+  margin-left: 20px;
+}
+
+#aside-home > div {
+  margin: 0px 0px 25px 0px;
 }
