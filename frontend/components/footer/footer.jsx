@@ -17,6 +17,7 @@ const Footer = (props) => {
             <i class="devicon-gimp-plain"></i>
           </ul>
           <ul className='flex-row'>
+            <a href="http://www.slavnikov.com/"> <i class="fa fa-folder-open"></i></a>
             <a href="https://github.com/slavnikov"><i class="fa fa-github"></i></a>
             <a href="https://www.linkedin.com/in/slavnikov"> <i class="fa fa-linkedin"></i></a>
             <a href="https://angel.co/dmitry-slavnikov"> <i class="fa fa-angellist"></i></a>

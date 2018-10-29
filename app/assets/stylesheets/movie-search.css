@@ -1,0 +1,11 @@
+.title-list {
+  margin: 0px 10px;
+}
+
+.title-list li {
+  margin: 5px 0px;
+}
+
+.title-list li a {
+  display: block;
+}

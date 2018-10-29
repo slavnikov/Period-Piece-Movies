@@ -23,8 +23,7 @@ class MovieSearch extends React.Component {
 
   render() {
     return (
-      <div>
-        <main>
+        <main className='flex-column-center'>
           <div className='glass-pane'>
             <div className='glass-container'>
               <h2>Movie Search</h2>
@@ -50,7 +49,6 @@ class MovieSearch extends React.Component {
             </div>
           </div>
         </main>
-      </div>
     );
   }
 }

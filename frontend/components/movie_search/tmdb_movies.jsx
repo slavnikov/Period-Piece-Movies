@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const TmdbMovies = (props) => {
   return (
-    <ul>
+    <ul className='title-list'>
       {props.tmdbMovies.map((tmdbMovie, idx) => {
         return (
           <li key={idx}>

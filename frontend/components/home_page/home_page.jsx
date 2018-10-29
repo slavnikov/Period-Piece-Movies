@@ -27,8 +27,9 @@ const HomePage = (props) => {
             <h3>updates</h3>
             <p>10.29.18 - hosted the site live on AWS Elastic Beanstalk</p>
             <h3>future features</h3>
+            <p>- add more movies!!! (not really a feauture, but still big improvement area)</p>
             <p>- extend the name search to include tv-shows</p>
-            <p>- add more movies (not really a feauture, but still big improvement area)</p>
+            <p>- change negative and positive dates to use AD and BC</p>
             <p>- display on homepage the latest new database entries</p>
             <p>- credit users who have been adding new entries</p>
           </main>

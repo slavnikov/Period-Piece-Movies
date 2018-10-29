@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const OurMovies = (props) => {
   return (
-    <ul>
+    <ul className='title-list'>
       {props.ourMovieIDs.map((movieID, idx) => {
         return (
           <li key={idx}><Link key={idx} to={`/movie/${movieID}`}>{props.movies[movieID].title}</Link></li>
