@@ -25,6 +25,12 @@ class Api::MoviesController < ApplicationController
     render :show
   end
 
+  def recent
+    @movies = Movie.order("created_at desc").limit(10)
+    
+    render :index
+  end
+
   private
 
   def movie_params

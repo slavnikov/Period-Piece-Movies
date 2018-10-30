@@ -14,3 +14,10 @@ export const logout = () => {
     url: '/session',
   });
 };
+
+export const fetchRecent = () => {
+  return $.ajax({
+    method: 'get',
+    url: '/api/movie/recent',
+  });
+};

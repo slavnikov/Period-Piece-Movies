@@ -5,7 +5,7 @@ import MovieVE from './movie_view_edit/movie_ve_container';
 import MovieCreate from './movie_create/movie_create_container';
 import PeriodSearch from './period_search/period_search_container';
 import Header from './header/header_container';
-import HomePage from './home_page/home_page';
+import HomePage from './home_page/home_page_container';
 import Footer from './footer/footer';
 
 const ApplicationMain = (props) => {

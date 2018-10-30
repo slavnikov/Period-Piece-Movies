@@ -1,5 +1,5 @@
 #home {
-  height: 70vh;
+  height: fit-content;
   min-height: fit-content;
   align-items: flex-start;
 }
@@ -49,4 +49,9 @@
 
 #aside-home > div {
   margin: 0px 0px 25px 0px;
+}
+
+#recent-pane img{
+  height: 20vh;
+  margin: 5px 15px;
 }

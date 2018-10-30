@@ -177,7 +177,7 @@ var receiveMovies = function receiveMovies(payload) {
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT, SET_TEMP_MOVIE, login, logout, logoutAction, receiveCurrentUser, setTempMovie */
+/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT, SET_TEMP_MOVIE, RECEIVE_RECENT_MOVIES, login, logout, fetchRecent, logoutAction, receiveCurrentUser, setTempMovie, receiveRecentMovies */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -185,16 +185,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_USER", function() { return RECEIVE_CURRENT_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT", function() { return LOGOUT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_TEMP_MOVIE", function() { return SET_TEMP_MOVIE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_RECENT_MOVIES", function() { return RECEIVE_RECENT_MOVIES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchRecent", function() { return fetchRecent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logoutAction", function() { return logoutAction; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveCurrentUser", function() { return receiveCurrentUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTempMovie", function() { return setTempMovie; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveRecentMovies", function() { return receiveRecentMovies; });
 /* harmony import */ var _api_session_requests__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api/session_requests */ "./frontend/api/session_requests.js");
 
 var RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 var LOGOUT = 'LOGOUT';
 var SET_TEMP_MOVIE = 'SET_TEMP_MOVIE';
+var RECEIVE_RECENT_MOVIES = 'RECEIVE_RECENT_MOVIES';
 var login = function login(user) {
   return function (dispatch) {
     _api_session_requests__WEBPACK_IMPORTED_MODULE_0__["login"](user).then(function (user) {
@@ -206,6 +210,13 @@ var logout = function logout() {
   return function (dispatch) {
     _api_session_requests__WEBPACK_IMPORTED_MODULE_0__["logout"]().then(function () {
       dispatch(logoutAction());
+    });
+  };
+};
+var fetchRecent = function fetchRecent() {
+  return function (dispatch) {
+    _api_session_requests__WEBPACK_IMPORTED_MODULE_0__["fetchRecent"]().then(function (payload) {
+      return dispatch(receiveRecentMovies(payload));
     });
   };
 };
@@ -224,6 +235,12 @@ var setTempMovie = function setTempMovie(movie) {
   return {
     type: SET_TEMP_MOVIE,
     movie: movie
+  };
+};
+var receiveRecentMovies = function receiveRecentMovies(payload) {
+  return {
+    type: RECEIVE_RECENT_MOVIES,
+    payload: payload
   };
 };
 
@@ -357,13 +374,14 @@ var searchByDateRange = function searchByDateRange(startYear, endYear) {
 /*!******************************************!*\
   !*** ./frontend/api/session_requests.js ***!
   \******************************************/
-/*! exports provided: login, logout */
+/*! exports provided: login, logout, fetchRecent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchRecent", function() { return fetchRecent; });
 var login = function login(user) {
   return $.ajax({
     method: 'post',
@@ -377,6 +395,12 @@ var logout = function logout() {
   return $.ajax({
     method: 'delete',
     url: '/session'
+  });
+};
+var fetchRecent = function fetchRecent() {
+  return $.ajax({
+    method: 'get',
+    url: '/api/movie/recent'
   });
 };
 
@@ -421,7 +445,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _movie_create_movie_create_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./movie_create/movie_create_container */ "./frontend/components/movie_create/movie_create_container.js");
 /* harmony import */ var _period_search_period_search_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./period_search/period_search_container */ "./frontend/components/period_search/period_search_container.js");
 /* harmony import */ var _header_header_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./header/header_container */ "./frontend/components/header/header_container.js");
-/* harmony import */ var _home_page_home_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home_page/home_page */ "./frontend/components/home_page/home_page.jsx");
+/* harmony import */ var _home_page_home_page_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home_page/home_page_container */ "./frontend/components/home_page/home_page_container.js");
 /* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./footer/footer */ "./frontend/components/footer/footer.jsx");
 
 
@@ -439,7 +463,7 @@ var ApplicationMain = function ApplicationMain(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/",
-    component: _home_page_home_page__WEBPACK_IMPORTED_MODULE_7__["default"]
+    component: _home_page_home_page_container__WEBPACK_IMPORTED_MODULE_7__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/movie_search",
     component: _movie_search_movie_search_container__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -803,42 +827,157 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _recent_additions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./recent_additions */ "./frontend/components/home_page/recent_additions.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
-var HomePage = function HomePage(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex-row",
-    id: "home"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
-    className: "flex-column-center percent-w-20",
-    id: "aside-home"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "glass-pane fill-width"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "glass-container fill-width"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "period")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "piece")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "movies")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "glass-pane"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "glass-container fill-width"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-    className: "flex-column-center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/period_search",
-    className: "flex-column-center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "period search"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Drag an interactive timeline or select a famous period from a drop down and see a snapshot of the world through the movies and tv shows set in that time period.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/movie_search",
-    className: "flex-column-center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "name search"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Have a movie in mind? Find one to see where it fits in on the global timeline or add one and share what you know about it with others.")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "glass-pane percent-w-80"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "glass-container fill-width"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
-    id: "home-main"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "the goal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Period Piece Moves was created to allow people to explore world history through the lens of movies and tv shows set in specific time periods and specific geographic locations. The main attraction of the site is the period serach. Think of it like a time machine: you select a time period to visit, and it gives you all the possible global destinations. Try it out! Unfortunately, there is no one place on repository with information about the hisotrical setting of every movie and tv show; in fact, that is what Period Piece Movies set out to become. This kind of information can be hard to find, but where there's a will, there's a way. If you have a favorite movie - it does not have to be a documentary or docu-drama, just something with a depiction of how someplace was at sometime - make an account and add it to our databse to share with others. Your contribution will be highlighted on the homepage (feauture feature :D) and it will go a long way to making this a resoruce for hisotry buffs and amateur time-travelers alike.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Again, welcome!", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "sdo 10.26.18")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "recent updates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.29.18 - hosted the site live on AWS Elastic Beanstalk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "future features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- add more movies!!! (not really a feauture, but still big improvement area)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- remove the zoom on a single marker in period serach view"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- extend the name search to include tv-shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- change negative and positive dates to use AD and BC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- display on homepage the latest new database entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- credit users who have been adding new entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- show movie poster on movie view page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- provide more information on map marker hover"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- automate databse extraction to prevent accidental incompatability (admin)")))));
-};
+
+
+var HomePage =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(HomePage, _React$Component);
+
+  function HomePage(props) {
+    _classCallCheck(this, HomePage);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(HomePage).call(this, props));
+  }
+
+  _createClass(HomePage, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchRecent();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flex-column"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flex-row",
+        id: "home"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+        className: "flex-column-center percent-w-20",
+        id: "aside-home"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "glass-pane fill-width"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "glass-container fill-width"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "period")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "piece")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "movies")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "glass-pane"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "glass-container fill-width"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        className: "flex-column-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/period_search",
+        className: "flex-column-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "period search"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Drag an interactive timeline or select a famous period from a drop down and see a snapshot of the world through the movies and tv shows set in that time period.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/movie_search",
+        className: "flex-column-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "name search"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Have a movie in mind? Find one to see where it fits in on the global timeline or add one and share what you know about it with others.")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "glass-pane percent-w-80"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "glass-container fill-width"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
+        id: "home-main"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "the goal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Period Piece Moves was created to allow people to explore world history through the lens of movies and tv shows set in specific time periods and specific geographic locations. The main attraction of the site is the period serach. Think of it like a time machine: you select a time period to visit, and it gives you all the possible global destinations. Try it out! Unfortunately, there is no one place on repository with information about the hisotrical setting of every movie and tv show; in fact, that is what Period Piece Movies set out to become. This kind of information can be hard to find, but where there's a will, there's a way. If you have a favorite movie - it does not have to be a documentary or docu-drama, just something with a depiction of how someplace was at sometime - make an account and add it to our databse to share with others. Your contribution will be highlighted on the homepage (feauture feature :D) and it will go a long way to making this a resoruce for hisotry buffs and amateur time-travelers alike.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Again, welcome!", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "sdo 10.26.18")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "recent updates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.29.18 - hosted the site live on AWS Elastic Beanstalk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "future features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- add more movies!!! (not really a feauture, but still big improvement area)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- remove the zoom on a single marker in period serach view"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- extend the name search to include tv-shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- change negative and positive dates to use AD and BC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- display on homepage the latest new database entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- credit users who have been adding new entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- show movie poster on movie view page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- provide more information on map marker hover"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- automate databse extraction to prevent accidental incompatability (admin)"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_recent_additions__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        recentMovies: this.props.recentMovies
+      }));
+    }
+  }]);
+
+  return HomePage;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (HomePage);
+
+/***/ }),
+
+/***/ "./frontend/components/home_page/home_page_container.js":
+/*!**************************************************************!*\
+  !*** ./frontend/components/home_page/home_page_container.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _home_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home_page */ "./frontend/components/home_page/home_page.jsx");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  var recentMovies = state.session.recentMovies || [];
+  return {
+    recentMovies: recentMovies.map(function (recentID) {
+      return state.movies[recentID];
+    })
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchRecent: function fetchRecent() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["fetchRecent"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_home_page__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/home_page/recent_additions.jsx":
+/*!************************************************************!*\
+  !*** ./frontend/components/home_page/recent_additions.jsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var RecentAdditions = function RecentAdditions(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "glass-pane"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "glass-container flex-row"
+  }, props.recentMovies.map(function (movie) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "flex-column-center",
+      id: "recent-pane"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, movie.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: "https://image.tmdb.org/t/p/w500".concat(movie.poster_path)
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, movie.start_year, " - ", movie.end_year));
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RecentAdditions);
 
 /***/ }),
 
@@ -2224,6 +2363,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_search_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/search_actions */ "./frontend/actions/search_actions.js");
 /* harmony import */ var _actions_movie_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/movie_actions */ "./frontend/actions/movie_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 
@@ -2233,6 +2374,7 @@ var MoviesReducer = function MoviesReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["RECEIVE_RECENT_MOVIES"]:
     case _actions_search_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SEARCH_RESULTS"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, action.payload.ourMovies);
 
@@ -2339,24 +2481,38 @@ var SessionReducer = function SessionReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_USER"]:
-      return {
-        currentUserId: Object.values(action.user)[0].id,
-        tempMovie: state.tempMovie
-      };
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, {
+        currentUserId: Object.values(action.user)[0].id
+      });
+    // return {
+    //   currentUserId: Object.values(action.user)[0].id,
+    //   tempMovie: state.tempMovie,
+    // };
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["LOGOUT"]:
-      return {
-        currentUserId: null,
-        tempMovie: state.tempMovie
-      };
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, {
+        currentUserId: null
+      });
+    // return {
+    //   currentUserId: null,
+    //   tempMovie: state.tempMovie,
+    // };
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["SET_TEMP_MOVIE"]:
-      return {
-        currentUserId: state.currentUserId,
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, {
         tempMovie: Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({
           id: 'new'
         }, action.movie)
-      };
+      });
+    // return {
+    //   currentUserId: state.currentUserId,
+    //   tempMovie: merge({id: 'new'}, action.movie),
+    // };
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_RECENT_MOVIES"]:
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({}, state, {
+        recentMovies: Object.keys(action.payload.ourMovies)
+      });
 
     default:
       return state;

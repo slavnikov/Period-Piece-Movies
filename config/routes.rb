@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'search/by_name', to: 'search#by_name'
   get 'search/by_date_range', to: 'search#by_date_range'
+  get 'api/movie/recent', to: 'api/movies#recent'
 
   resource :session, only: [:create, :destroy]
 
