@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_184312) do
+ActiveRecord::Schema.define(version: 2018_10_30_134301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_10_22_184312) do
     t.integer "end_year", null: false
     t.float "lat", null: false
     t.float "lng", null: false
+    t.string "poster_path"
     t.index ["end_date"], name: "index_movies_on_end_date"
     t.index ["start_date"], name: "index_movies_on_start_date"
     t.index ["title", "year"], name: "index_movies_on_title_and_year", unique: true
