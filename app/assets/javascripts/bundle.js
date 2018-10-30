@@ -1329,6 +1329,7 @@ function (_React$Component) {
       overview: _this.movie.overview || '',
       lat: _this.movie.lat = _this.movie.lat,
       lng: _this.movie.lng = _this.movie.lng,
+      poster_path: _this.movie.poster_path || '',
       location: '',
       readOnly: _this.props.match.params.movie_id === 'new' ? false : true
     };
@@ -1480,6 +1481,7 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Configuring the time machine right now...");
       }
 
+      console.log(this.props.movie);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-pane"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1528,7 +1530,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-container percent-w-100"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "https://image.tmdb.org/t/p/w500".concat(this.props.movie.poster_path),
+        src: "https://image.tmdb.org/t/p/w500".concat(this.state.poster_path),
         id: "movie-poster"
       }))))));
     }
@@ -1724,7 +1726,7 @@ function (_React$Component) {
         map.panTo(this.currMarkers[0].position);
 
         if (this.props.readOnly !== undefined) {
-          map.setZoom(5);
+          map.setZoom(4);
         }
       }
     }
@@ -2325,7 +2327,10 @@ var SearchResultsReudcer = function SearchResultsReudcer() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 var SessionReducer = function SessionReducer() {
@@ -2333,27 +2338,24 @@ var SessionReducer = function SessionReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_USER"]:
       return {
         currentUserId: Object.values(action.user)[0].id,
         tempMovie: state.tempMovie
       };
 
-    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT"]:
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["LOGOUT"]:
       return {
         currentUserId: null,
         tempMovie: state.tempMovie
       };
 
-    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["SET_TEMP_MOVIE"]:
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["SET_TEMP_MOVIE"]:
       return {
         currentUserId: state.currentUserId,
-        tempMovie: {
-          id: 'new',
-          title: action.movie.title,
-          year: action.movie.year,
-          overview: action.movie.overview
-        }
+        tempMovie: Object(lodash__WEBPACK_IMPORTED_MODULE_0__["merge"])({
+          id: 'new'
+        }, action.movie)
       };
 
     default:

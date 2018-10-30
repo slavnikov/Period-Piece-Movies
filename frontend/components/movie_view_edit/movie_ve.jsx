@@ -15,6 +15,7 @@ class MovieVE extends React.Component {
       overview: this.movie.overview || '',
       lat: this.movie.lat = this.movie.lat,
       lng: this.movie.lng = this.movie.lng,
+      poster_path: this.movie.poster_path || '',
       location: '',
       readOnly: this.props.match.params.movie_id === 'new' ? false : true,
     };
@@ -116,6 +117,7 @@ class MovieVE extends React.Component {
     if (!this.props.movie) {
       return <h1>Configuring the time machine right now...</h1>;
     }
+    console.log(this.props.movie);
     return (
       <div>
         <main>
@@ -201,7 +203,7 @@ class MovieVE extends React.Component {
             />
           <div className='glass-pane percent-w-25'>
               <div className='glass-container percent-w-100'>
-                <img src={`https://image.tmdb.org/t/p/w500${this.props.movie.poster_path}`} id='movie-poster'></img>
+                <img src={`https://image.tmdb.org/t/p/w500${this.state.poster_path}`} id='movie-poster'></img>
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+import { merge } from 'lodash';
 import { RECEIVE_CURRENT_USER, LOGOUT, SET_TEMP_MOVIE } from '../actions/session_actions';
 
 const SessionReducer = (state = {}, action) => {
@@ -15,12 +16,7 @@ const SessionReducer = (state = {}, action) => {
     case SET_TEMP_MOVIE:
       return {
         currentUserId: state.currentUserId,
-        tempMovie: {
-          id: 'new',
-          title: action.movie.title,
-          year: action.movie.year,
-          overview: action.movie.overview,
-        }
+        tempMovie: merge({id: 'new'}, action.movie),
       };
     default:
       return state;

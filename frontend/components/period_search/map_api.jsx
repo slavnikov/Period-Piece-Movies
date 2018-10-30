@@ -57,7 +57,7 @@ class MapApi extends React.Component {
 
     if (this.props.markers.length === 1 && this.currMarkers[0]) {
       map.panTo(this.currMarkers[0].position);
-      if (this.props.readOnly !== undefined) {map.setZoom(5);}
+      if (this.props.readOnly !== undefined) {map.setZoom(4);}
     }
   }
 
