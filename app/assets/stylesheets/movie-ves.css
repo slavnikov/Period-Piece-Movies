@@ -1,0 +1,11 @@
+#movie-poster {
+  position: relative;
+  top: 5px;
+  left: 0px;
+  width: 100%;
+  opacity: 0.85;
+}
+
+#ves-main {
+  align-items: flex-start;
+}

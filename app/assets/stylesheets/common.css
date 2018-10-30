@@ -14,6 +14,7 @@
   flex-direction: row;
   align-items: center;
 }
+
 .flex-row-space-between {
   display: flex;
   flex-direction: row;
@@ -91,6 +92,14 @@ button:hover {
   width: 20% !important;
 }
 
+.percent-w-25 {
+  width: 25% !important;
+}
+
+.percent-w-30 {
+  width: 30% !important;
+}
+
 .percent-w-80 {
   width: 80% !important;
 }
@@ -119,10 +128,15 @@ button:hover {
 }
 
 #map {
-  width: 70vw;
-  height: 33vw;
+  width: 70%;
+  height: 71vh;
   background: none;
   opacity: 0.9;
+}
+
+.ves-map {
+  margin-top: 25px;
+  width: 40% !important;
 }
 
 #map div {

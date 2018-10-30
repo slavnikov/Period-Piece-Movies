@@ -1485,9 +1485,10 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Movie Details:"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "flex-row"
+        className: "flex-row-space-between footer-padder",
+        id: "ves-main"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "glass-pane"
+        className: "glass-pane percent-w-25"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-container flex-column"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1522,7 +1523,14 @@ function (_React$Component) {
         readOnly: this.state.readOnly,
         setLatLng: this.setLatLng.bind(this),
         markers: [this.state]
-      }))));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "glass-pane percent-w-25"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "glass-container percent-w-100"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://image.tmdb.org/t/p/w500".concat(this.props.movie.poster_path),
+        id: "movie-poster"
+      }))))));
     }
   }]);
 
@@ -1725,7 +1733,7 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "map",
-        className: "glass-border"
+        className: "glass-border ".concat(this.props.readOnly !== undefined ? 'ves-map' : '')
       });
     }
   }]);

@@ -124,8 +124,8 @@ class MovieVE extends React.Component {
               <h2>Movie Details:</h2>
             </div>
           </div>
-          <div className='flex-row'>
-            <div className='glass-pane'>
+          <div className='flex-row-space-between footer-padder' id='ves-main'>
+            <div className='glass-pane percent-w-25'>
               <div className='glass-container flex-column'>
                 <form className='flex-column'>
                   <table>
@@ -199,6 +199,11 @@ class MovieVE extends React.Component {
               setLatLng={this.setLatLng.bind(this)}
               markers={[this.state]}
             />
+          <div className='glass-pane percent-w-25'>
+              <div className='glass-container percent-w-100'>
+                <img src={`https://image.tmdb.org/t/p/w500${this.props.movie.poster_path}`} id='movie-poster'></img>
+              </div>
+            </div>
           </div>
         </main>
       </div>

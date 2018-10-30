@@ -65,7 +65,7 @@ class MapApi extends React.Component {
     return (
       <span
         id='map'
-        className='glass-border'>
+        className={`glass-border ${this.props.readOnly !== undefined ? 'ves-map' : ''}`}>
       </span>
     );
   }
