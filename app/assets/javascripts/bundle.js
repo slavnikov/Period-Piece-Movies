@@ -2003,6 +2003,11 @@ function (_React$Component) {
   }
 
   _createClass(PeriodSearch, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchPeriods();
+    }
+  }, {
     key: "setLimits",
     value: function setLimits(min, max) {
       this.setState({
@@ -2027,7 +2032,8 @@ function (_React$Component) {
         className: "flex-column-center footer-padder"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_period_selector__WEBPACK_IMPORTED_MODULE_3__["default"], {
         setLimits: this.setLimits.bind(this),
-        periods: this.props.periods
+        timePeriods: this.props.timePeriods,
+        periodFilters: this.props.periodFilters
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_timeline_new__WEBPACK_IMPORTED_MODULE_2__["default"], {
         searchByDateRange: this.props.searchByDateRange,
         minYear: this.state.minYear,
@@ -2064,10 +2070,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state) {
+  var periodFilters = state.periods.period_filters || {};
+  var timePeriods = state.periods.time_periods || {};
   return {
     movies: state.movies,
     ourMovieIDs: state.searchResults.ourMovieIDs,
-    periods: state.periods
+    periodFilters: periodFilters,
+    timePeriods: timePeriods
   };
 };
 
@@ -2123,38 +2132,55 @@ function (_React$Component) {
   _inherits(PeriodSelector, _React$Component);
 
   function PeriodSelector(props) {
+    var _this;
+
     _classCallCheck(this, PeriodSelector);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(PeriodSelector).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PeriodSelector).call(this, props));
+    _this.state = {
+      periods: []
+    };
+    return _this;
   }
 
   _createClass(PeriodSelector, [{
     key: "handleClick",
     value: function handleClick(min, max) {
-      var _this = this;
+      var _this2 = this;
 
       return function () {
-        _this.props.setLimits(min, max);
+        _this2.props.setLimits(min, max);
       };
     }
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "glass-pane"
+        className: "glass-pane",
+        id: "period-selector-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "glass-container flex-column-center select-wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Refine Timeline"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "period-select"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        onClick: this.handleClick(-2000, 0)
-      }, "BC (2000BC - 0AD)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        onClick: this.handleClick(0, 2000)
-      }, "AD (0AD - 2000AD)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        onClick: this.handleClick(1800, 2000)
-      }, "Modern (1800AD - 2000AD)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        onClick: this.handleClick(400, 1453)
-      }, "Middle Ages (400AD - 1453AD)"))));
+        className: "glass-container flex-row",
+        id: "period-selector"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "vertical-text"
+      }, "filters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, Object.values(this.props.periodFilters).map(function (periodFilter) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this3.setState({
+              periods: periodFilter.time_period_ids
+            });
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, periodFilter.name));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.periods.map(function (periodId) {
+        var timePeriod = _this3.props.timePeriods[periodId];
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: _this3.handleClick(timePeriod.start_year, timePeriod.end_year)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, timePeriod.name, " (", timePeriod.start_year, " - ", timePeriod.end_year, ")"));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "vertical-text"
+      }, "periods")));
     }
   }]);
 

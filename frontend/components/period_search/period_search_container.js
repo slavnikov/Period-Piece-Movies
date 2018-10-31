@@ -4,10 +4,14 @@ import { searchByDateRange } from '../../actions/search_actions';
 import { fetchPeriods } from '../../actions/period_actions';
 
 const mapStateToProps = (state) => {
+  const periodFilters = state.periods.period_filters || {};
+  const timePeriods = state.periods.time_periods || {};
+
   return ({
     movies: state.movies,
     ourMovieIDs: state.searchResults.ourMovieIDs,
-    periods: state.periods,
+    periodFilters: periodFilters,
+    timePeriods: timePeriods,
   });
 };
 

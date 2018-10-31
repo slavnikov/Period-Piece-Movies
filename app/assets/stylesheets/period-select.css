@@ -2,7 +2,27 @@
   width: 20vw;
 }
 
-.select-wrapper {
+#period-selector {
+  width: 75vw;
+  height: 122px;
+}
+
+#period-selector ul {
+  width: 50%;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 3px 0px;
+}
+
+#period-selector button {
+  width: 99.5%;
+}
+
+#period-selector-wrapper {
+  margin-bottom: 0px;
+}
+
+/* .select-wrapper {
   height: 30px;
   transition: height 0.5s;
 }
@@ -19,4 +39,4 @@
 
 .select-wrapper:hover {
   height: 100px;
-}
+} */

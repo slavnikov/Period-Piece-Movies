@@ -13,6 +13,10 @@ class PeriodSearch extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.fetchPeriods();
+  }
+
   setLimits(min, max) {
     this.setState({minYear: min, maxYear: max});
     console.log(this.state);
@@ -27,7 +31,11 @@ class PeriodSearch extends React.Component {
   render () {
     return (
       <div className='flex-column-center footer-padder'>
-        <PeriodSelector setLimits={this.setLimits.bind(this)} periods={this.props.periods}/>
+        <PeriodSelector
+          setLimits={this.setLimits.bind(this)}
+          timePeriods={this.props.timePeriods}
+          periodFilters={this.props.periodFilters}
+        />
         <Timeline
           searchByDateRange={this.props.searchByDateRange}
           minYear={this.state.minYear}
