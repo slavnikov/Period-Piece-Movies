@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   namespace :api, defaults: { fromat: 'json' } do
     resources :movies, only: [:create, :update, :show]
     resources :users, only: [:create]
+    resources :periods, only: :index
   end
 end
