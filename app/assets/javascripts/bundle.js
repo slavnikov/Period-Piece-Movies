@@ -965,6 +965,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var RecentAdditions = function RecentAdditions(props) {
+  var orderedMovies = props.recentMovies.sort(function (movie1, movie2) {
+    return Date.parse(movie2.created_at) - Date.parse(movie1.created_at);
+  });
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "glass-pane",
     id: "recent-container"
@@ -972,7 +975,7 @@ var RecentAdditions = function RecentAdditions(props) {
     className: "glass-container flex-row-space-between percent-w-100"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
     className: "vertical-text"
-  }, "new entries"), props.recentMovies.map(function (movie) {
+  }, "new entries"), orderedMovies.map(function (movie) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       className: "flex-column-center",
       id: "recent-pane",
