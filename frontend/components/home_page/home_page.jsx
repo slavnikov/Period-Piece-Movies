@@ -47,14 +47,14 @@ class HomePage extends React.Component {
                 <p>10.29.18 - hosted the site live on AWS Elastic Beanstalk</p>
                 <p>10.30.18 - remove the zoom on a single marker in period serach view</p>
                 <p>10.30.18 - display on homepage the latest new database entries</p>
+                <p>10.31.18 - improve period selection menu</p>
+                <p>10.31.18 - show movie posters</p>
                 <h3>future features</h3>
                 <p>- add more movies!!! (not really a feauture, but still big improvement area)</p>
-                <p>- extend the name search to include tv-shows</p>
                 <p>- change negative and positive dates to use AD and BC</p>
+                <p>- extend the name search to include tv-shows</p>
                 <p>- credit users who have been adding new entries</p>
-                <p>- show movie poster on movie view page</p>
                 <p>- provide more information on map marker hover</p>
-                <p>- automate databse extraction to prevent accidental incompatability (admin)</p>
               </main>
             </div>
           </div>
