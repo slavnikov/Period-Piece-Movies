@@ -27,8 +27,27 @@ class Api::MoviesController < ApplicationController
 
   def recent
     @movies = Movie.order("created_at desc").limit(10)
-    
+
     render :index
+  end
+
+  def backup_db
+    extraction = File.open('db/extracted_db.rb', 'w')
+    extraction.write("EXTRACTED_DB = [\n")
+    movies = Movie.all
+
+    movies.each_with_index do |movie, idx|
+      hash = movie.as_json
+      hash.delete("created_at")
+      hash.delete("updated_at")
+      hash.delete("start_date")
+      hash.delete("end_date")
+      extraction.write(hash.to_s)
+      extraction.write(",\n") if idx < (movies.length - 1)
+    end
+
+    extraction.write("\n]")
+    extraction.close
   end
 
   private

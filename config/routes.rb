@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'search/by_name', to: 'search#by_name'
   get 'search/by_date_range', to: 'search#by_date_range'
   get 'api/movie/recent', to: 'api/movies#recent'
+  get 'api/movie/backup', to: 'api/movies#backup_db'
 
   resource :session, only: [:create, :destroy]
 

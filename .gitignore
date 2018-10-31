@@ -20,6 +20,7 @@ bundle.js.map
 .env
 todo.txt
 extracted_db.txt
+extracted_db.rb
 
 # Ignore uploaded files in development
 /storage/*
