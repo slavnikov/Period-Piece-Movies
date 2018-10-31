@@ -10,7 +10,7 @@ class MapApi extends React.Component {
   componentDidMount() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 35, lng: 5},
-      zoom: 2,
+      zoom: 3,
       minZoom: 2,
     });
 
@@ -55,9 +55,9 @@ class MapApi extends React.Component {
       }
     });
 
-    if (this.props.markers.length === 1 && this.currMarkers[0]) {
+    if (this.props.readOnly !== undefined && this.props.markers.length === 1 && this.currMarkers[0]) {
       map.panTo(this.currMarkers[0].position);
-      if (this.props.readOnly !== undefined) {map.setZoom(4);}
+      map.setZoom(4);
     }
   }
 

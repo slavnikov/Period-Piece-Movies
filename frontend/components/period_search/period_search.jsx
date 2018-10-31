@@ -31,16 +31,18 @@ class PeriodSearch extends React.Component {
   render () {
     return (
       <div className='flex-column-center footer-padder'>
-        <PeriodSelector
-          setLimits={this.setLimits.bind(this)}
-          timePeriods={this.props.timePeriods}
-          periodFilters={this.props.periodFilters}
-        />
-        <Timeline
-          searchByDateRange={this.props.searchByDateRange}
-          minYear={this.state.minYear}
-          maxYear={this.state.maxYear}
-        />
+        <div className='flex-row-space-between'>
+          <PeriodSelector
+            setLimits={this.setLimits.bind(this)}
+            timePeriods={this.props.timePeriods}
+            periodFilters={this.props.periodFilters}
+            />
+          <Timeline
+            searchByDateRange={this.props.searchByDateRange}
+            minYear={this.state.minYear}
+            maxYear={this.state.maxYear}
+            />
+        </div>
       <MapApi markers={this.filterMovies()}/>
       </div>
     );

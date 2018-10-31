@@ -1845,7 +1845,7 @@ function (_React$Component) {
           lat: 35,
           lng: 5
         },
-        zoom: 2,
+        zoom: 3,
         minZoom: 2
       });
       map.addListener('click', this.handleMapClick.bind(this));
@@ -1920,12 +1920,9 @@ function (_React$Component) {
         }
       });
 
-      if (this.props.markers.length === 1 && this.currMarkers[0]) {
+      if (this.props.readOnly !== undefined && this.props.markers.length === 1 && this.currMarkers[0]) {
         map.panTo(this.currMarkers[0].position);
-
-        if (this.props.readOnly !== undefined) {
-          map.setZoom(4);
-        }
+        map.setZoom(4);
       }
     }
   }, {
@@ -2030,6 +2027,8 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flex-column-center footer-padder"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flex-row-space-between"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_period_selector__WEBPACK_IMPORTED_MODULE_3__["default"], {
         setLimits: this.setLimits.bind(this),
         timePeriods: this.props.timePeriods,
@@ -2038,7 +2037,7 @@ function (_React$Component) {
         searchByDateRange: this.props.searchByDateRange,
         minYear: this.state.minYear,
         maxYear: this.state.maxYear
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_api__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_api__WEBPACK_IMPORTED_MODULE_4__["default"], {
         markers: this.filterMovies()
       }));
     }
@@ -2138,7 +2137,8 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(PeriodSelector).call(this, props));
     _this.state = {
-      periods: []
+      periods: [],
+      filters: true
     };
     return _this;
   }
@@ -2153,9 +2153,36 @@ function (_React$Component) {
       };
     }
   }, {
+    key: "renderList",
+    value: function renderList() {
+      var _this3 = this;
+
+      if (this.state.filters) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, Object.values(this.props.periodFilters).map(function (periodFilter, idx) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            key: idx,
+            onClick: function onClick() {
+              return _this3.setState({
+                periods: periodFilter.time_period_ids,
+                filters: false
+              });
+            }
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, periodFilter.name));
+        }));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.periods.map(function (periodId, idx) {
+          var timePeriod = _this3.props.timePeriods[periodId];
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            key: idx,
+            onClick: _this3.handleClick(timePeriod.start_year, timePeriod.end_year)
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, timePeriod.name, " (", timePeriod.start_year, " - ", timePeriod.end_year, ")"));
+        }));
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-pane",
@@ -2163,24 +2190,17 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-container flex-row",
         id: "period-selector"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        className: "vertical-text"
-      }, "filters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, Object.values(this.props.periodFilters).map(function (periodFilter) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: function onClick() {
-            return _this3.setState({
-              periods: periodFilter.time_period_ids
-            });
-          }
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, periodFilter.name));
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.periods.map(function (periodId) {
-        var timePeriod = _this3.props.timePeriods[periodId];
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: _this3.handleClick(timePeriod.start_year, timePeriod.end_year)
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, timePeriod.name, " (", timePeriod.start_year, " - ", timePeriod.end_year, ")"));
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        className: "vertical-text"
-      }, "periods")));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "back-button",
+        className: this.state.filters ? 'no-hover' : '',
+        onClick: function onClick() {
+          return _this4.setState({
+            filters: true
+          });
+        }
+      }, this.state.filters ? '' : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-angle-double-left"
+      })), this.renderList()));
     }
   }]);
 

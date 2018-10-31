@@ -10,7 +10,7 @@
 
 #header:hover, #header:focus-within {
   height: 70px;
-  transition-delay: 0.075s
+  transition-delay: 0.085s
 }
 
 #inner-header {
@@ -23,7 +23,7 @@
 
 #inner-header:hover, #inner-header:focus-within {
   height: 50px;
-  transition-delay: 0.075s
+  transition-delay: 0.085s
 }
 
 #header h5 {

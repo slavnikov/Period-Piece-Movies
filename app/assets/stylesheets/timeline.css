@@ -27,7 +27,7 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .timeline {
-  width: 75vw;
+  width: 50vw;
   pointer-events: none;
   border: 0px;
   position: relative;

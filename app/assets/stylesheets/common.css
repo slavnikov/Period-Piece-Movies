@@ -133,7 +133,7 @@ button:hover, #recent-pane:hover {
 }
 
 #map {
-  width: 70%;
+  width: calc(75vw + 105px);
   height: 71vh;
   background: none;
   opacity: 0.9;
