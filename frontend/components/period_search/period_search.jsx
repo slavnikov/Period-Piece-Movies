@@ -27,14 +27,7 @@ class PeriodSearch extends React.Component {
   render () {
     return (
       <div className='flex-column-center footer-padder'>
-        <header className='flex-row'>
-          <div className='glass-pane'>
-            <div className='glass-container'>
-              <h2>Search for movies within a date range.</h2>
-            </div>
-          </div>
-          <PeriodSelector setLimits={this.setLimits.bind(this)}/>
-        </header>
+        <PeriodSelector setLimits={this.setLimits.bind(this)} periods={this.props.periods}/>
         <Timeline
           searchByDateRange={this.props.searchByDateRange}
           minYear={this.state.minYear}

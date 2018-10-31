@@ -134,6 +134,37 @@ var receiveMovie = function receiveMovie(movie) {
 
 /***/ }),
 
+/***/ "./frontend/actions/period_actions.js":
+/*!********************************************!*\
+  !*** ./frontend/actions/period_actions.js ***!
+  \********************************************/
+/*! exports provided: RECEIVE_PERIODS, fetchPeriods, receivePeriods */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_PERIODS", function() { return RECEIVE_PERIODS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPeriods", function() { return fetchPeriods; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePeriods", function() { return receivePeriods; });
+/* harmony import */ var _api_period_requests__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api/period_requests */ "./frontend/api/period_requests.js");
+
+var RECEIVE_PERIODS = 'RECEIVE_PERIODS';
+var fetchPeriods = function fetchPeriods() {
+  return function (dispatch) {
+    _api_period_requests__WEBPACK_IMPORTED_MODULE_0__["fetchPeriods"]().then(function (periods) {
+      dispatch(receivePeriods(periods));
+    });
+  };
+};
+var receivePeriods = function receivePeriods(periods) {
+  return {
+    type: RECEIVE_PERIODS,
+    periods: periods
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/search_actions.js":
 /*!********************************************!*\
   !*** ./frontend/actions/search_actions.js ***!
@@ -332,6 +363,25 @@ var createMovie = function createMovie(params) {
     data: {
       movie: params
     }
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/api/period_requests.js":
+/*!*****************************************!*\
+  !*** ./frontend/api/period_requests.js ***!
+  \*****************************************/
+/*! exports provided: fetchPeriods */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPeriods", function() { return fetchPeriods; });
+var fetchPeriods = function fetchPeriods() {
+  return $.ajax({
+    method: 'get',
+    url: '/api/periods'
   });
 };
 
@@ -1975,15 +2025,10 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flex-column-center footer-padder"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-        className: "flex-row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "glass-pane"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "glass-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Search for movies within a date range."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_period_selector__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        setLimits: this.setLimits.bind(this)
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_timeline_new__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_period_selector__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        setLimits: this.setLimits.bind(this),
+        periods: this.props.periods
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_timeline_new__WEBPACK_IMPORTED_MODULE_2__["default"], {
         searchByDateRange: this.props.searchByDateRange,
         minYear: this.state.minYear,
         maxYear: this.state.maxYear
@@ -2012,6 +2057,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _period_search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./period_search */ "./frontend/components/period_search/period_search.jsx");
 /* harmony import */ var _actions_search_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/search_actions */ "./frontend/actions/search_actions.js");
+/* harmony import */ var _actions_period_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/period_actions */ "./frontend/actions/period_actions.js");
+
 
 
 
@@ -2019,7 +2066,8 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state) {
   return {
     movies: state.movies,
-    ourMovieIDs: state.searchResults.ourMovieIDs
+    ourMovieIDs: state.searchResults.ourMovieIDs,
+    periods: state.periods
   };
 };
 
@@ -2027,6 +2075,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     searchByDateRange: function searchByDateRange(startYear, endYear) {
       return dispatch(Object(_actions_search_actions__WEBPACK_IMPORTED_MODULE_2__["searchByDateRange"])(startYear, endYear));
+    },
+    fetchPeriods: function fetchPeriods() {
+      return dispatch(Object(_actions_period_actions__WEBPACK_IMPORTED_MODULE_3__["fetchPeriods"])());
     }
   };
 };
@@ -2399,6 +2450,35 @@ var MoviesReducer = function MoviesReducer() {
 
 /***/ }),
 
+/***/ "./frontend/reducers/periods_reducer.js":
+/*!**********************************************!*\
+  !*** ./frontend/reducers/periods_reducer.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_period_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/period_actions */ "./frontend/actions/period_actions.js");
+
+
+var PeriodsReducer = function PeriodsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_period_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_PERIODS"]:
+      return action.periods;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PeriodsReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/root_reducer.js":
 /*!*******************************************!*\
   !*** ./frontend/reducers/root_reducer.js ***!
@@ -2413,6 +2493,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _search_results_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search_results_reducer */ "./frontend/reducers/search_results_reducer.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _session_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_reducer */ "./frontend/reducers/session_reducer.js");
+/* harmony import */ var _periods_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./periods_reducer */ "./frontend/reducers/periods_reducer.js");
+
 
 
 
@@ -2421,6 +2503,7 @@ __webpack_require__.r(__webpack_exports__);
 var RootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
   movies: _movies_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  periods: _periods_reducer__WEBPACK_IMPORTED_MODULE_5__["default"],
   searchResults: _search_results_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   session: _session_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
