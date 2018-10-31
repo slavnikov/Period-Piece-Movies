@@ -960,17 +960,23 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
 
 
 var RecentAdditions = function RecentAdditions(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "glass-pane"
+    className: "glass-pane",
+    id: "recent-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "glass-container flex-row"
-  }, props.recentMovies.map(function (movie) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "glass-container flex-row-space-between percent-w-100"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "vertical-text"
+  }, "new entries"), props.recentMovies.map(function (movie) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       className: "flex-column-center",
-      id: "recent-pane"
+      id: "recent-pane",
+      to: "/movie/".concat(movie.id)
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, movie.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: "https://image.tmdb.org/t/p/w500".concat(movie.poster_path)
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, movie.start_year, " - ", movie.end_year));
