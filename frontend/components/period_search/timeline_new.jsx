@@ -116,7 +116,7 @@ class Timeline extends React.Component {
   render () {
     return (
       <div className='glass-pane'>
-        <div className='glass-container flex-column-center'>
+        <div className='glass-container flex-column-center' id='timeline'>
           <input
             type='range'
             min={this.props.minYear}
@@ -138,7 +138,9 @@ class Timeline extends React.Component {
             className='timeline'
             id='second-slider'>
           </input>
+          <p>drag timeline to refine timespan</p>
           {this.displayDateRange()}
+          <button onClick={() => this.props.setLimits(-2000, 2000)}><h6>reset</h6></button>
         </div>
       </div>
     );

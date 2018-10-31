@@ -38,6 +38,7 @@ class PeriodSearch extends React.Component {
             periodFilters={this.props.periodFilters}
             />
           <Timeline
+            setLimits={this.setLimits.bind(this)}
             searchByDateRange={this.props.searchByDateRange}
             minYear={this.state.minYear}
             maxYear={this.state.maxYear}

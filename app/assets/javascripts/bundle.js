@@ -2034,6 +2034,7 @@ function (_React$Component) {
         timePeriods: this.props.timePeriods,
         periodFilters: this.props.periodFilters
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_timeline_new__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        setLimits: this.setLimits.bind(this),
         searchByDateRange: this.props.searchByDateRange,
         minYear: this.state.minYear,
         maxYear: this.state.maxYear
@@ -2373,10 +2374,13 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-pane"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "glass-container flex-column-center"
+        className: "glass-container flex-column-center",
+        id: "timeline"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "range",
         min: this.props.minYear,
@@ -2396,7 +2400,11 @@ function (_React$Component) {
         onMouseUp: this.launchSearch.bind(this),
         className: "timeline",
         id: "second-slider"
-      }), this.displayDateRange()));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "drag timeline to refine timespan"), this.displayDateRange(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return _this3.props.setLimits(-2000, 2000);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "reset"))));
     }
   }]);
 
