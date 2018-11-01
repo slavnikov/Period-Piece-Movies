@@ -1011,6 +1011,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _util_gen_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/gen_util */ "./frontend/util/gen_util.js");
+
 
 
 
@@ -1032,7 +1034,7 @@ var RecentAdditions = function RecentAdditions(props) {
       to: "/movie/".concat(movie.id)
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, movie.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: "https://image.tmdb.org/t/p/w500".concat(movie.poster_path)
-    }), movie.start_year === movie.end_year ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, movie.start_year) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, movie.start_year, " - ", movie.end_year));
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, Object(_util_gen_util__WEBPACK_IMPORTED_MODULE_2__["dateRange"])(movie.start_year, movie.end_year)));
   })));
 };
 
@@ -2116,6 +2118,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util_gen_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/gen_util */ "./frontend/util/gen_util.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2133,6 +2136,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -2186,7 +2190,7 @@ function (_React$Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
             key: idx,
             onClick: _this3.handleClick(timePeriod.start_year, timePeriod.end_year)
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, timePeriod.name, " (", timePeriod.start_year, " - ", timePeriod.end_year, ")"));
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, timePeriod.name, " (", Object(_util_gen_util__WEBPACK_IMPORTED_MODULE_1__["dateRange"])(timePeriod.start_year, timePeriod.end_year), ")"));
         }));
       }
     }
@@ -2233,6 +2237,7 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util_gen_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/gen_util */ "./frontend/util/gen_util.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -2252,6 +2257,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -2298,7 +2304,7 @@ function (_React$Component) {
     key: "displayDateRange",
     value: function displayDateRange() {
       var minMax = this.yearMinMax();
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, minMax.min, " - ", minMax.max);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, Object(_util_gen_util__WEBPACK_IMPORTED_MODULE_1__["dateRange"])(minMax.min, minMax.max));
     }
   }, {
     key: "yearMinMax",
@@ -2675,6 +2681,34 @@ var configureStore = function configureStore(presetConfig) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/gen_util.js":
+/*!***********************************!*\
+  !*** ./frontend/util/gen_util.js ***!
+  \***********************************/
+/*! exports provided: translateDate, dateRange */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "translateDate", function() { return translateDate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dateRange", function() { return dateRange; });
+function translateDate(date) {
+  if (date < 0) {
+    return "".concat(date * -1, " BC");
+  } else {
+    return "".concat(date, " AD");
+  }
+}
+function dateRange(date1, date2) {
+  if (date1 === date2) {
+    return translateDate(date1);
+  } else {
+    return "".concat(translateDate(date1), " - ").concat(translateDate(date2));
+  }
+}
 
 /***/ }),
 

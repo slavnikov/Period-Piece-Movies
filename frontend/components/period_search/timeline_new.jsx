@@ -1,4 +1,5 @@
 import React from 'react';
+import { dateRange } from '../../util/gen_util';
 
 class Timeline extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class Timeline extends React.Component {
 
   displayDateRange() {
     const minMax = this.yearMinMax();
-    return (<h2>{minMax.min} - {minMax.max}</h2>);
+    return (<h2>{dateRange(minMax.min, minMax.max)}</h2>);
   }
 
   yearMinMax() {

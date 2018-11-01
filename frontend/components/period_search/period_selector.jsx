@@ -1,4 +1,5 @@
 import React from 'react';
+import { dateRange } from '../../util/gen_util';
 
 class PeriodSelector extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class PeriodSelector extends React.Component {
                 <button
                   key={idx}
                   onClick={this.handleClick(timePeriod.start_year, timePeriod.end_year)}>
-                  <h6>{timePeriod.name} ({timePeriod.start_year} - {timePeriod.end_year})</h6>
+                  <h6>{timePeriod.name} ({dateRange(timePeriod.start_year, timePeriod.end_year)})</h6>
                 </button>
               );
             })

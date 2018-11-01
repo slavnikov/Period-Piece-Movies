@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { dateRange } from '../../util/gen_util';
 
 const RecentAdditions = (props) => {
   const orderedMovies = props.recentMovies.sort((movie1, movie2) => {
@@ -16,7 +17,7 @@ const RecentAdditions = (props) => {
               <Link className='flex-column-center' id='recent-pane' to={`/movie/${movie.id}`}>
                 <h5>{movie.title}</h5>
                 <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></img>
-                {movie.start_year === movie.end_year ? <h5>{movie.start_year}</h5> : <h5>{movie.start_year} - {movie.end_year}</h5>}
+                <h5>{dateRange(movie.start_year, movie.end_year)}</h5>
               </Link>
             );
           })
