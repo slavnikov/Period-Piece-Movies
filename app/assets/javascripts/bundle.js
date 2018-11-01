@@ -1489,7 +1489,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _period_search_map_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../period_search/map_api */ "./frontend/components/period_search/map_api.jsx");
-/* harmony import */ var _api_external_requests__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/external_requests */ "./frontend/api/external_requests.js");
+/* harmony import */ var _util_gen_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/gen_util */ "./frontend/util/gen_util.js");
+/* harmony import */ var _api_external_requests__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../api/external_requests */ "./frontend/api/external_requests.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1509,6 +1510,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1670,7 +1672,7 @@ function (_React$Component) {
       var _this6 = this;
 
       if (this.state.lat && this.state.lng) {
-        Object(_api_external_requests__WEBPACK_IMPORTED_MODULE_2__["fetchLocation"])(this.state.lat, this.state.lng).then(function (r) {
+        Object(_api_external_requests__WEBPACK_IMPORTED_MODULE_3__["fetchLocation"])(this.state.lat, this.state.lng).then(function (r) {
           _this6.setState({
             location: r.results[0].formatted_address
           });
@@ -1713,15 +1715,19 @@ function (_React$Component) {
         type: "number",
         defaultValue: this.state.year,
         disabled: true
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "start year")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "start year")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        className: "flex-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.change('start_year'),
-        type: "number",
-        value: this.state.start_year,
+        type: this.state.readOnly ? 'text' : 'number',
+        value: this.state.readOnly ? Object(_util_gen_util__WEBPACK_IMPORTED_MODULE_2__["translateDate"])(this.state.start_year) : this.state.start_year,
         disabled: this.state.readOnly
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "end year")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "end year")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        className: "flex-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.change('end_year'),
-        type: "number",
-        value: this.state.end_year,
+        type: this.state.readOnly ? 'text' : 'number',
+        value: this.state.readOnly ? Object(_util_gen_util__WEBPACK_IMPORTED_MODULE_2__["translateDate"])(this.state.end_year) : this.state.end_year,
         disabled: this.state.readOnly
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "location")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",

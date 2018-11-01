@@ -1,5 +1,6 @@
 import React from 'react';
 import MapApi from '../period_search/map_api';
+import { translateDate } from '../../util/gen_util';
 import { fetchLocation } from '../../api/external_requests';
 
 class MovieVE extends React.Component {
@@ -152,23 +153,26 @@ class MovieVE extends React.Component {
                         <td>
                           <label>start year</label>
                         </td>
-                        <td>
+                        <td className='flex-row'>
                           <input
                             onChange={this.change('start_year')}
-                            type='number'
-                            value={this.state.start_year}
-                            disabled={this.state.readOnly}></input>
+                            type={this.state.readOnly ? 'text' : 'number'}
+                            value={this.state.readOnly ? translateDate(this.state.start_year) : this.state.start_year}
+                            disabled={this.state.readOnly}>
+                          </input>
                         </td>
                       </tr>
                       <tr>
                         <td>
                           <label>end year</label>
                         </td>
-                        <td>
+                        <td className='flex-row'>
                           <input
                             onChange={this.change('end_year')}
-                            type='number' value={this.state.end_year}
-                            disabled={this.state.readOnly}></input>
+                            type={this.state.readOnly ? 'text' : 'number'}
+                            value={this.state.readOnly ? translateDate(this.state.end_year) : this.state.end_year}
+                            disabled={this.state.readOnly}>
+                          </input>
                         </td>
                       </tr>
                       <tr>
