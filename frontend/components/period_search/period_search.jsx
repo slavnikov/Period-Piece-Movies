@@ -9,7 +9,7 @@ class PeriodSearch extends React.Component {
     super(props);
     this.state = {
       minYear: -2000,
-      maxYear: 2000,
+      maxYear: 2018,
     };
   }
 

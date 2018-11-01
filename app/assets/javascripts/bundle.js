@@ -1618,6 +1618,11 @@ function (_React$Component) {
             onClick: function onClick() {
               _this5.props.createMovie(_this5.state).then(function (r) {
                 window.location.href = "#/movie/".concat(Object.keys(r)[0]);
+
+                _this5.setState({
+                  id: Object.keys(r)[0],
+                  readOnly: true
+                });
               });
             }
           }, "save entry");
@@ -1685,7 +1690,6 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Configuring the time machine right now...");
       }
 
-      console.log(this.props.movie);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-pane"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2000,7 +2004,7 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(PeriodSearch).call(this, props));
     _this.state = {
       minYear: -2000,
-      maxYear: 2000
+      maxYear: 2018
     };
     return _this;
   }
@@ -2263,17 +2267,11 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Timeline).call(this, props));
     _this.state = {
-      // year1: this.props.minYear,
-      // year2: this.props.maxYear,
       slider1: _this.props.minYear,
       slider2: _this.props.maxYear
     };
     return _this;
-  } // componentDidMount() {
-  //   this.setRightBound();
-  //   window.addEventListener('resize', this.setRightBound.bind(this));
-  // }
-
+  }
 
   _createClass(Timeline, [{
     key: "componentDidUpdate",
@@ -2286,61 +2284,7 @@ function (_React$Component) {
           slider2: this.props.maxYear
         }, this.launchSearch.bind(this));
       }
-    } // getRightBound() {
-    //   return document.getElementById('timeline').getBoundingClientRect().width-5;
-    // }
-    // getLeftBound() {
-    //   return document.getElementById('timeline').getBoundingClientRect().left;
-    // }
-    // setRightBound() {
-    //   this.setState({slider2: this.getRightBound()});
-    // }
-    // drag(e) {
-    //   const leftBound = this.getLeftBound();
-    //   this.setState(
-    //     {[e.currentTarget.id]: e.pageX - leftBound},
-    //     this.determineDateRange
-    //   );
-    // }
-    // drop(e) {
-    //   const leftBound = this.getLeftBound();
-    //   const location = e.pageX - leftBound;
-    //
-    //   let finalLocation;
-    //   if (location < 15) {
-    //     finalLocation = 15;
-    //   } else if (location > this.getRightBound()) {
-    //     finalLocation = this.getRightBound();
-    //   } else {
-    //     finalLocation = location;
-    //   }
-    //   this.setState(
-    //     {[e.currentTarget.id]: finalLocation},
-    //     this.launchSearch
-    //   );
-    // }
-    // draggableLocation(slider) {
-    //   return ({
-    //     left: this.state[slider],
-    //   });
-    // }
-    // determineDateRange() {
-    //   const minYear = this.props.minYear;
-    //   const maxYear = this.props.maxYear;
-    //   const span = maxYear - minYear;
-    //   const lower = this.state.slider1 < this.state.slider2 ? this.state.slider1 : this.state.slider2;
-    //   const higher = this.state.slider1 > this.state.slider2 ? this.state.slider1 : this.state.slider2;
-    //   const year1 = Math.floor(span * ((lower-15) / this.getRightBound())) + minYear;
-    //   const year2 = Math.ceil(span * ((higher) / this.getRightBound())) + minYear;
-    //
-    //   this.setState({year1: year1, year2: year2});
-    //   return [year1, year2];
-    // }
-    // launchSearch() {
-    //   const years = this.determineDateRange();
-    //   this.props.searchByDateRange(years[0], years[1]);
-    // }
-
+    }
   }, {
     key: "drag",
     value: function drag(slider) {
@@ -2408,7 +2352,7 @@ function (_React$Component) {
         id: "second-slider"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "drag timeline to refine timespan"), this.displayDateRange(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          return _this3.props.setLimits(-2000, 2000);
+          return _this3.props.setLimits(-2000, 2018);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "reset"))));
     }

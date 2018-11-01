@@ -73,6 +73,7 @@ class MovieVE extends React.Component {
           onClick={() => {
             this.props.createMovie(this.state).then((r) => {
               window.location.href = `#/movie/${Object.keys(r)[0]}`;
+              this.setState({id: Object.keys(r)[0], readOnly: true});
             });
           }}>
           save entry
@@ -117,7 +118,6 @@ class MovieVE extends React.Component {
     if (!this.props.movie) {
       return <h1>Configuring the time machine right now...</h1>;
     }
-    console.log(this.props.movie);
     return (
       <div>
         <main>
