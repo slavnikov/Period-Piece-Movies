@@ -50,9 +50,9 @@ class HomePage extends React.Component {
                 <p>10.31.18 - improve period selection menu</p>
                 <p>10.31.18 - show movie posters</p>
                 <p>11.1.18 - extend the name search to include tv-shows</p>
+                <p>11.1.18 - change negative and positive dates to use AD and BC</p>
                 <h3>future features</h3>
                 <p>- add more movies!!! (not really a feauture, but still big improvement area)</p>
-                <p>- change negative and positive dates to use AD and BC</p>
                 <p>- credit users who have been adding new entries</p>
                 <p>- provide more information on map marker hover</p>
               </main>
