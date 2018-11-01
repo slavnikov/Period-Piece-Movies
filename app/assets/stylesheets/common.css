@@ -15,6 +15,12 @@
   align-items: center;
 }
 
+.flex-row-start {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
 .flex-row-space-between {
   display: flex;
   flex-direction: row;
@@ -87,7 +93,7 @@ button {
   transition: background-color 0.5s, box-shadow 0.5s, text-shadow 0.5s;
 }
 
-button:hover, #recent-pane:hover {
+button:hover, #recent-pane:hover, .title-list li a:hover {
   background-color: rgba(255,255,255,0.05);
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   text-shadow: .1px .1px 1px #282828aa;
@@ -103,6 +109,10 @@ button:hover, #recent-pane:hover {
 
 .percent-w-30 {
   width: 30% !important;
+}
+
+.percent-w-50 {
+  width: 50% !important;
 }
 
 .percent-w-80 {

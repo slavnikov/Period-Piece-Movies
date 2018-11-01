@@ -49,10 +49,10 @@ class HomePage extends React.Component {
                 <p>10.30.18 - display on homepage the latest new database entries</p>
                 <p>10.31.18 - improve period selection menu</p>
                 <p>10.31.18 - show movie posters</p>
+                <p>11.1.18 - extend the name search to include tv-shows</p>
                 <h3>future features</h3>
                 <p>- add more movies!!! (not really a feauture, but still big improvement area)</p>
                 <p>- change negative and positive dates to use AD and BC</p>
-                <p>- extend the name search to include tv-shows</p>
                 <p>- credit users who have been adding new entries</p>
                 <p>- provide more information on map marker hover</p>
               </main>

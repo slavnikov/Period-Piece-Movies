@@ -23,7 +23,7 @@ class MovieSearch extends React.Component {
 
   render() {
     return (
-        <main className='flex-column-center'>
+        <main className='flex-column-center footer-padder'>
           <div className='glass-pane'>
             <div className='glass-container'>
               <h2>Movie Search</h2>
@@ -32,7 +32,7 @@ class MovieSearch extends React.Component {
           <div className='glass-pane'>
             <div className='glass-container flex-row'>
               <form onSubmit={this.sendSearch}>
-                <label>Movie Name </label>
+                <label>Movie or Show Name </label>
                 <input
                   type='text'
                   value={this.state.query}
@@ -42,10 +42,18 @@ class MovieSearch extends React.Component {
               </form>
             </div>
           </div>
-          <div className='glass-pane'>
-            <div className='glass-container flex-row'>
-              <OurMovies movies={this.props.movies} ourMovieIDs={this.props.ourMovieIDs}/>
-              <TmdbMovies tmdbMovies={this.props.tmdbMovies} setTempMovie={this.props.setTempMovie}/>
+          <div className='flex-row-start percent-w-80'>
+            <div className='glass-pane percent-w-50'>
+              <div className='glass-container percent-w-100 flex-column-center'>
+                <h5>timeline entires</h5>
+                <OurMovies movies={this.props.movies} ourMovieIDs={this.props.ourMovieIDs}/>
+              </div>
+            </div>
+            <div className='glass-pane percent-w-50'>
+              <div className='glass-container percent-w-100 flex-column-center'>
+                <h5>missing timeline data</h5>
+                <TmdbMovies tmdbMovies={this.props.tmdbMovies} setTempMovie={this.props.setTempMovie}/>
+              </div>
             </div>
           </div>
         </main>
