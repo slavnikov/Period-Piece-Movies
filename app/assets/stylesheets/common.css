@@ -142,13 +142,6 @@ button:hover, #recent-pane:hover, .title-list li a:hover {
   min-height: fit-content !important;
 }
 
-/* #map {
-  width: calc(75vw + 105px);
-  height: 71vh;
-  background: none;
-  opacity: 0.9;
-} */
-
 .home-map {
   width: calc(50% - 50px);
   height: 54vh;
@@ -156,9 +149,19 @@ button:hover, #recent-pane:hover, .title-list li a:hover {
   opacity: 0.9;
 }
 
+.ps-map {
+  width: calc(75vw + 105px);
+  height: 71vh;
+  background: none;
+  opacity: 0.9;
+}
+
 .ves-map {
   margin-top: 25px;
-  width: 40% !important;
+  width: 40%;
+  height: 71vh;
+  background: none;
+  opacity: 0.9;
 }
 
 #map div {

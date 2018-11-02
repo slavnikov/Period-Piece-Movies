@@ -201,6 +201,7 @@ class MovieVE extends React.Component {
               </div>
             </div>
             <MapApi
+              location='ves'
               readOnly={this.state.readOnly}
               setLatLng={this.setLatLng.bind(this)}
               markers={[this.state]}

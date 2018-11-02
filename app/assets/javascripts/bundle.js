@@ -969,10 +969,14 @@ function (_React$Component) {
         className: "flex-column-center percent-w-20",
         id: "aside-home"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "glass-pane fill-width"
+        className: "glass-pane fill-width",
+        id: "logo-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "glass-container fill-width"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "period")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "piece")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "movies")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "glass-container fill-width",
+        id: "logo"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        id: "logo-txt"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "timelinereel")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-pane percent-w-100"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-container fill-width"
@@ -990,7 +994,7 @@ function (_React$Component) {
         className: "glass-container fill-width"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
         id: "home-main"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "recent updates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.29.18 - hosted the site live on AWS Elastic Beanstalk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.30.18 - remove the zoom on a single marker in period serach view"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.30.18 - display on homepage the latest new database entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.31.18 - improve period selection menu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.31.18 - show movie posters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "11.1.18 - extend the name search to include tv-shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "11.1.18 - change negative and positive dates to use AD and BC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "future features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- add more movies!!! (not really a feauture, but still big improvement area)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- credit users who have been adding new entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- provide more information on map marker hover"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "recent updates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.29.18 - hosted the site live on AWS Elastic Beanstalk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.30.18 - display on homepage the latest new database entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.31.18 - improve period selection menu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.31.18 - show movie posters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "11.1.18 - extend the name search to include tv-shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "11.1.18 - change negative and positive dates to use AD and BC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "11.2.18 - reimagine the home page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "future features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- add more movies!!! (not really a feauture, but still big improvement area)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- credit users who have been adding new entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- provide more information on map marker hover"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flex-row-start percent-w-100"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_recent_additions__WEBPACK_IMPORTED_MODULE_2__["default"], {
         recentMovies: this.props.recentMovies
@@ -1800,6 +1804,7 @@ function (_React$Component) {
         value: this.state.overview,
         disabled: this.state.readOnly
       })))))), this.button())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_period_search_map_api__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        location: "ves",
         readOnly: this.state.readOnly,
         setLatLng: this.setLatLng.bind(this),
         markers: [this.state]
@@ -2119,6 +2124,7 @@ function (_React$Component) {
         minYear: this.state.minYear,
         maxYear: this.state.maxYear
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_map_api__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        location: "ps",
         markers: this.filterMovies()
       }));
     }

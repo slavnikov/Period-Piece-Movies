@@ -88,3 +88,24 @@
   width: 100%;
   margin-top: 10px;
 }
+
+#logo-wrapper {
+  height: 17vh;
+}
+
+#logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background-image: url(asset_path("logo.png"));
+  height: 100%;
+  background-size: contain;
+  background-position-y: center;
+  background-position-x: left;
+  background-repeat-x: no-repeat;
+}
+
+#logo-txt {
+  font-size: 1.2vw !important;
+}
