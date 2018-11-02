@@ -971,24 +971,24 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-container fill-width"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "period")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "piece")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "movies")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "glass-pane"
+        className: "glass-pane percent-w-100"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-container fill-width"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "flex-column-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/period_search",
-        className: "flex-column-center"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "period search"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Drag an interactive timeline or select a famous period from a drop down and see a snapshot of the world through the movies and tv shows set in that time period.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "flex-column-center percent-w-100"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "period search")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/movie_search",
-        className: "flex-column-center"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "name search"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Have a movie in mind? Find one to see where it fits in on the global timeline or add one and share what you know about it with others.")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flex-column-center percent-w-100"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "name search")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-pane percent-w-80"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "glass-container fill-width"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
         id: "home-main"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "the goal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Period Piece Moves was created to allow people to explore world history through the lens of movies and tv shows set in specific time periods and specific geographic locations. The main attraction of the site is the period serach. Think of it like a time machine: you select a time period to visit, and it gives you all the possible global destinations. Try it out! Unfortunately, there is no one place on repository with information about the hisotrical setting of every movie and tv show; in fact, that is what Period Piece Movies set out to become. This kind of information can be hard to find, but where there's a will, there's a way. If you have a favorite movie - it does not have to be a documentary or docu-drama, just something with a depiction of how someplace was at sometime - make an account and add it to our databse to share with others. Your contribution will be highlighted on the homepage (feauture feature :D) and it will go a long way to making this a resoruce for hisotry buffs and amateur time-travelers alike.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Again, welcome!", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "sdo 10.26.18")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "recent updates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.29.18 - hosted the site live on AWS Elastic Beanstalk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.30.18 - remove the zoom on a single marker in period serach view"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.30.18 - display on homepage the latest new database entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.31.18 - improve period selection menu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.31.18 - show movie posters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "11.1.18 - extend the name search to include tv-shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "11.1.18 - change negative and positive dates to use AD and BC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "future features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- add more movies!!! (not really a feauture, but still big improvement area)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- credit users who have been adding new entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- provide more information on map marker hover"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_recent_additions__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "recent updates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.29.18 - hosted the site live on AWS Elastic Beanstalk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.30.18 - remove the zoom on a single marker in period serach view"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.30.18 - display on homepage the latest new database entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.31.18 - improve period selection menu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.31.18 - show movie posters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "11.1.18 - extend the name search to include tv-shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "11.1.18 - change negative and positive dates to use AD and BC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "future features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- add more movies!!! (not really a feauture, but still big improvement area)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- credit users who have been adding new entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- provide more information on map marker hover"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_recent_additions__WEBPACK_IMPORTED_MODULE_2__["default"], {
         recentMovies: this.props.recentMovies
       }));
     }
@@ -1063,10 +1063,14 @@ var RecentAdditions = function RecentAdditions(props) {
     className: "glass-pane",
     id: "recent-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "glass-container flex-row-space-between percent-w-100"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-    className: "vertical-text"
-  }, "new entries"), orderedMovies.map(function (movie) {
+    className: "glass-container flex-column percent-w-100"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "recent entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex-column-center percent-w-100"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex-row-space-between",
+    id: "recent-row"
+  }, orderedMovies.map(function (movie, idx) {
+    if (idx >= 5) return;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       className: "flex-column-center",
       id: "recent-pane",
@@ -1074,7 +1078,19 @@ var RecentAdditions = function RecentAdditions(props) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, movie.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: "https://image.tmdb.org/t/p/w500".concat(movie.poster_path)
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, Object(_util_gen_util__WEBPACK_IMPORTED_MODULE_2__["dateRange"])(movie.start_year, movie.end_year)));
-  })));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex-row-space-between",
+    id: "recent-row"
+  }, orderedMovies.map(function (movie, idx) {
+    if (idx < 5) return;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "flex-column-center",
+      id: "recent-pane",
+      to: "/movie/".concat(movie.id)
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, movie.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: "https://image.tmdb.org/t/p/w500".concat(movie.poster_path)
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, Object(_util_gen_util__WEBPACK_IMPORTED_MODULE_2__["dateRange"])(movie.start_year, movie.end_year)));
+  })))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (RecentAdditions);

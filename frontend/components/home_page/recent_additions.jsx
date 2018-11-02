@@ -9,19 +9,38 @@ const RecentAdditions = (props) => {
 
   return (
     <div className='glass-pane' id='recent-container'>
-      <div className='glass-container flex-row-space-between percent-w-100'>
-        <h4 className='vertical-text'>new entries</h4>
-        {
-          orderedMovies.map((movie) => {
-            return (
-              <Link className='flex-column-center' id='recent-pane' to={`/movie/${movie.id}`}>
-                <h5>{movie.title}</h5>
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></img>
-                <h5>{dateRange(movie.start_year, movie.end_year)}</h5>
-              </Link>
-            );
-          })
-        }
+      <div className='glass-container flex-column percent-w-100'>
+        <h4>recent entries</h4>
+        <div className='flex-column-center percent-w-100'>
+          <div className='flex-row-space-between' id='recent-row'>
+            {
+              orderedMovies.map((movie, idx) => {
+                if (idx >= 5) return;
+                return (
+                  <Link className='flex-column-center' id='recent-pane' to={`/movie/${movie.id}`}>
+                    <h5>{movie.title}</h5>
+                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></img>
+                    <h5>{dateRange(movie.start_year, movie.end_year)}</h5>
+                  </Link>
+                );
+              })
+            }
+          </div>
+          <div className='flex-row-space-between' id='recent-row'>
+            {
+              orderedMovies.map((movie, idx) => {
+                if (idx < 5) return;
+                return (
+                  <Link className='flex-column-center' id='recent-pane' to={`/movie/${movie.id}`}>
+                    <h5>{movie.title}</h5>
+                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></img>
+                    <h5>{dateRange(movie.start_year, movie.end_year)}</h5>
+                  </Link>
+                );
+              })
+            }
+          </div>
+        </div>
       </div>
     </div>
   );
