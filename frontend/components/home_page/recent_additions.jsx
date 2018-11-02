@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { dateRange } from '../../util/gen_util';
 
 const RecentAdditions = (props) => {
+  
   const orderedMovies = props.recentMovies.sort((movie1, movie2) => {
     return Date.parse(movie2.created_at) - Date.parse(movie1.created_at);
   });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import RecentAdditions from './recent_additions';
+import MapApi from '../period_search/map_api';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class HomePage extends React.Component {
 
   render () {
     return (
-      <div className='flex-column'>
+      <div className='flex-column footer-padder'>
         <div className='flex-row' id='home'>
           <aside className='flex-column-center percent-w-20' id='aside-home'>
             <div className='glass-pane fill-width'>
@@ -55,7 +56,10 @@ class HomePage extends React.Component {
             </div>
           </div>
         </div>
-        <RecentAdditions recentMovies={this.props.recentMovies}/>
+        <div className='flex-row-start percent-w-100'>
+          <RecentAdditions recentMovies={this.props.recentMovies}/>
+          <MapApi markers={this.props.recentMovies} location='home'/>
+        </div>
       </div>
     );
   }

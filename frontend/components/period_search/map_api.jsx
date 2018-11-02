@@ -10,7 +10,7 @@ class MapApi extends React.Component {
   componentDidMount() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 35, lng: 5},
-      zoom: 3,
+      zoom: 2,
       minZoom: 2,
     });
 
@@ -65,7 +65,7 @@ class MapApi extends React.Component {
     return (
       <span
         id='map'
-        className={`glass-border ${this.props.readOnly !== undefined ? 'ves-map' : ''}`}>
+        className={` glass-border ${this.props.location}-map`}>
       </span>
     );
   }

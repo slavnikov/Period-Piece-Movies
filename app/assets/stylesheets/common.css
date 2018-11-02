@@ -134,7 +134,7 @@ button:hover, #recent-pane:hover, .title-list li a:hover {
 }
 
 .footer-padder {
-  padding-bottom: 65px;
+  padding-bottom: 40px;
 }
 
 #root, .page-container-height, .vsc-initialized {
@@ -142,9 +142,16 @@ button:hover, #recent-pane:hover, .title-list li a:hover {
   min-height: fit-content !important;
 }
 
-#map {
+/* #map {
   width: calc(75vw + 105px);
   height: 71vh;
+  background: none;
+  opacity: 0.9;
+} */
+
+.home-map {
+  width: calc(50% - 50px);
+  height: 54vh;
   background: none;
   opacity: 0.9;
 }

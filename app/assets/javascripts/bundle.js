@@ -917,6 +917,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _recent_additions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./recent_additions */ "./frontend/components/home_page/recent_additions.jsx");
+/* harmony import */ var _period_search_map_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../period_search/map_api */ "./frontend/components/period_search/map_api.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -934,6 +935,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -959,7 +961,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "flex-column"
+        className: "flex-column footer-padder"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flex-row",
         id: "home"
@@ -988,9 +990,14 @@ function (_React$Component) {
         className: "glass-container fill-width"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
         id: "home-main"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "recent updates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.29.18 - hosted the site live on AWS Elastic Beanstalk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.30.18 - remove the zoom on a single marker in period serach view"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.30.18 - display on homepage the latest new database entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.31.18 - improve period selection menu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.31.18 - show movie posters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "11.1.18 - extend the name search to include tv-shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "11.1.18 - change negative and positive dates to use AD and BC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "future features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- add more movies!!! (not really a feauture, but still big improvement area)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- credit users who have been adding new entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- provide more information on map marker hover"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_recent_additions__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "recent updates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.29.18 - hosted the site live on AWS Elastic Beanstalk"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.30.18 - remove the zoom on a single marker in period serach view"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.30.18 - display on homepage the latest new database entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.31.18 - improve period selection menu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "10.31.18 - show movie posters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "11.1.18 - extend the name search to include tv-shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "11.1.18 - change negative and positive dates to use AD and BC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "future features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- add more movies!!! (not really a feauture, but still big improvement area)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- credit users who have been adding new entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "- provide more information on map marker hover"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flex-row-start percent-w-100"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_recent_additions__WEBPACK_IMPORTED_MODULE_2__["default"], {
         recentMovies: this.props.recentMovies
-      }));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_period_search_map_api__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        markers: this.props.recentMovies,
+        location: "home"
+      })));
     }
   }]);
 
@@ -1918,7 +1925,7 @@ function (_React$Component) {
           lat: 35,
           lng: 5
         },
-        zoom: 3,
+        zoom: 2,
         minZoom: 2
       });
       map.addListener('click', this.handleMapClick.bind(this));
@@ -2003,7 +2010,7 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "map",
-        className: "glass-border ".concat(this.props.readOnly !== undefined ? 'ves-map' : '')
+        className: " glass-border ".concat(this.props.location, "-map")
       });
     }
   }]);
