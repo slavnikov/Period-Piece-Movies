@@ -2289,7 +2289,9 @@ function (_React$Component) {
             filters: true
           });
         }
-      }, this.state.filters ? '' : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, this.state.filters ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "vertical-text"
+      }, "pov filter") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fa fa-angle-double-left"
       })), this.renderList()));
     }

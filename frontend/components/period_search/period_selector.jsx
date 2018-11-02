@@ -61,7 +61,7 @@ class PeriodSelector extends React.Component {
             id='back-button'
             className={this.state.filters ? 'no-hover' : ''}
             onClick={() => this.setState({filters: true})}>
-            {this.state.filters ? '' : <i className="fa fa-angle-double-left"></i>}
+            {this.state.filters ? <p className='vertical-text'>pov filter</p> : <i className="fa fa-angle-double-left"></i>}
           </button>
           {this.renderList()}
         </div>

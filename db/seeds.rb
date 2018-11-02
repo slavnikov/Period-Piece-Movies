@@ -47,7 +47,7 @@ TimePeriod.create({name: "Two-tens", start_year: 2010, end_year: 2019, period_fi
 
 TimePeriod.create({name: "Pre-Columbian Era", start_year: -3000, end_year: 1492, period_filter_id: american.id})
 TimePeriod.create({name: "Exploration and Colonization", start_year: 1492, end_year: 1763, period_filter_id: american.id})
-TimePeriod.create({name: "Rvolutionary Era", start_year: 1763, end_year: 1789, period_filter_id: american.id})
+TimePeriod.create({name: "Revolutionary Era", start_year: 1763, end_year: 1789, period_filter_id: american.id})
 TimePeriod.create({name: "Civil War and Reconstruction", start_year: 1860, end_year: 1877, period_filter_id: american.id})
 TimePeriod.create({name: "Gilded Age", start_year: 1876, end_year: 1900, period_filter_id: american.id})
 TimePeriod.create({name: "Progressive Era", start_year: 1890, end_year: 1920, period_filter_id: american.id})
@@ -89,7 +89,7 @@ TimePeriod.create({name: "Age of Discovery", start_year: 1400, end_year: 1770, p
 TimePeriod.create({name: "Polish Golden Age", start_year: 1507, end_year: 1572, period_filter_id: european_early_modern.id})
 TimePeriod.create({name: "Golden Age of Piracy", start_year: 1650, end_year: 1730, period_filter_id: european_early_modern.id})
 TimePeriod.create({name: "Elizabethan Era", start_year: 1588, end_year: 1603, period_filter_id: european_early_modern.id})
-TimePeriod.create({name: "Protestand Reformation", start_year: 1517, end_year: 1648, period_filter_id: european_early_modern.id})
+TimePeriod.create({name: "Protestant Reformation", start_year: 1517, end_year: 1648, period_filter_id: european_early_modern.id})
 TimePeriod.create({name: "Industrial Revolution", start_year: 1760, end_year: 1840, period_filter_id: european_early_modern.id})
 TimePeriod.create({name: "Jacobean Era", start_year: 1603, end_year: 1625, period_filter_id: european_early_modern.id})
 TimePeriod.create({name: "Petrine Era", start_year: 1689, end_year: 1725, period_filter_id: european_early_modern.id})
