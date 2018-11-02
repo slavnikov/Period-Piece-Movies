@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { dateRange } from '../../util/gen_util';
 
 const RecentAdditions = (props) => {
-  
+
   const orderedMovies = props.recentMovies.sort((movie1, movie2) => {
     return Date.parse(movie2.created_at) - Date.parse(movie1.created_at);
   });
@@ -11,7 +11,7 @@ const RecentAdditions = (props) => {
   return (
     <div className='glass-pane' id='recent-container'>
       <div className='glass-container flex-column percent-w-100'>
-        <h4>recent entries</h4>
+        <h4>recent timelinereel entries</h4>
         <div className='flex-column-center percent-w-100'>
           <div className='flex-row-space-between' id='recent-row'>
             {

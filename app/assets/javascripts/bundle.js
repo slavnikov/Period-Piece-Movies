@@ -564,7 +564,9 @@ var Footer = function Footer(props) {
     className: "flex-row-space-between"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "flex-row"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "v. 0.1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    id: "version-txt"
+  }, "v. 0.2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "devicon-rails-plain"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "devicon-react-original"
@@ -1075,7 +1077,7 @@ var RecentAdditions = function RecentAdditions(props) {
     id: "recent-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "glass-container flex-column percent-w-100"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "recent entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "recent timelinereel entries"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex-column-center percent-w-100"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex-row-space-between",

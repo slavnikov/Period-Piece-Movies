@@ -17,5 +17,9 @@ i, .fa {
 
 .fa:hover {
   color: #000000cc;
+}
 
+#version-txt{
+  color: #00000099;
+  margin-right: 5px;
 }

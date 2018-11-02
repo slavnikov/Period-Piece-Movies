@@ -6,7 +6,7 @@ const Footer = (props) => {
       <div className='glass-container percent-w-100' id='inner-footer'>
         <footer className="flex-row-space-between" >
           <ul className='flex-row'>
-            <h5>v. 0.1</h5>
+            <h5 id='version-txt'>v. 0.2</h5>
             <i className="devicon-rails-plain"></i>
             <i className="devicon-react-original"></i>
             <i className="devicon-postgresql-plain"></i>
