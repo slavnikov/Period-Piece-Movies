@@ -32,10 +32,10 @@ class Api::MoviesController < ApplicationController
   end
 
   def backup_db
-    extraction = File.open('db/extracted_db.rb', 'w')
-    extraction.write("EXTRACTED_DB = [\n")
     movies = Movie.all
 
+    extraction = File.open('db/extracted_db.rb', 'w')
+    extraction.write("EXTRACTED_DB = [\n")
     movies.each_with_index do |movie, idx|
       hash = movie.as_json
       hash.delete("created_at")
@@ -45,9 +45,10 @@ class Api::MoviesController < ApplicationController
       extraction.write(hash.to_s)
       extraction.write(",\n") if idx < (movies.length - 1)
     end
-
     extraction.write("\n]")
     extraction.close
+
+    send_file 'db/extracted_db.rb'
   end
 
   private

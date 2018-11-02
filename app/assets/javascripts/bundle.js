@@ -314,16 +314,23 @@ var receiveUser = function receiveUser(user) {
 /*!*******************************************!*\
   !*** ./frontend/api/external_requests.js ***!
   \*******************************************/
-/*! exports provided: fetchLocation */
+/*! exports provided: fetchLocation, fetchDatabaseBackup */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchLocation", function() { return fetchLocation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchDatabaseBackup", function() { return fetchDatabaseBackup; });
 var fetchLocation = function fetchLocation(lat, lng) {
   return $.ajax({
     method: 'get',
     url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=".concat(lat, ",").concat(lng, "&result_type=country&key=").concat("AIzaSyDZ0XMo_1hnUNLJQx83YjhUDynrU2kdXrs")
+  });
+};
+var fetchDatabaseBackup = function fetchDatabaseBackup() {
+  return $.ajax({
+    method: 'get',
+    url: '/api/movie/backup'
   });
 };
 
@@ -612,6 +619,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _omni_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./omni_form */ "./frontend/components/header/omni_form.jsx");
+/* harmony import */ var _api_external_requests__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/external_requests */ "./frontend/api/external_requests.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -633,6 +641,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Header =
 /*#__PURE__*/
 function (_React$Component) {
@@ -645,15 +654,43 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Header).call(this, props));
     _this.state = {
-      signIn: true
+      signIn: true,
+      backupUrl: null
     };
     return _this;
   }
 
   _createClass(Header, [{
+    key: "dbBackupButton",
+    value: function dbBackupButton() {
+      var _this2 = this;
+
+      if (this.props.currentUser.email === 'dmitry.slavnikov@gmail.com') {
+        if (this.state.backupUrl) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+            href: this.state.backupUrl,
+            download: "db_extractiob.rb"
+          }, "downlaod db backup");
+        } else {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            onClick: function onClick() {
+              Object(_api_external_requests__WEBPACK_IMPORTED_MODULE_2__["fetchDatabaseBackup"])().then(function (fileBits) {
+                var file = new File([fileBits], 'db_extraction.rb');
+                var url = URL.createObjectURL(file);
+
+                _this2.setState({
+                  backupUrl: url
+                });
+              });
+            }
+          }, "generate db backup");
+        }
+      }
+    }
+  }, {
     key: "variableContent",
     value: function variableContent() {
-      var _this2 = this;
+      var _this3 = this;
 
       if (this.props.currentUser) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -661,9 +698,11 @@ function (_React$Component) {
           id: "inner-header"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
           className: "pseudo-center"
-        }, this.props.currentUser.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, this.props.currentUser.email), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "flex-row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: this.props.logout
-        }, "logout")));
+        }, "logout")), this.dbBackupButton()));
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "glass-container flex-column-center",
@@ -672,13 +711,13 @@ function (_React$Component) {
           className: "pseudo-center"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: function onClick() {
-            _this2.setState({
+            _this3.setState({
               signIn: true
             });
           }
         }, "SIGN IN"), "\xA0OR\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: function onClick() {
-            _this2.setState({
+            _this3.setState({
               signIn: false
             });
           }
